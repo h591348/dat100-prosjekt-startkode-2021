@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="dat100-prosjekt-startkode-2021">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/src" />
+    </SOURCES>
+  </library>
+</component>
