@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8810f385-b6c2-40bf-a898-887f770cd746" name="Changes" comment="Update .gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dat100-prosjekt-startcode-2021.iml" beforeDir="false" afterPath="$PROJECT_DIR$/dat100-prosjekt-startcode-2021.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,12 +70,11 @@
     </configuration>
     <list>
       <item itemvalue="Application.VriOtteSpil" />
-      <item itemvalue="JUnit.TestBord.testConstructor (1)" />
+      <item itemvalue="JUnit.TestBord.testConstructor" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.VriOtteSpil" />
-        <item itemvalue="JUnit.TestBord.testConstructor (1)" />
       </list>
     </recent_temporary>
   </component>
