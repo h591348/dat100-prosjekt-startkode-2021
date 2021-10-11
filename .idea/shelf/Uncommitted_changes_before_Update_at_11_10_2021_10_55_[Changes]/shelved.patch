@@ -1,0 +1,60 @@
+Index: src/no/hvl/dat100/prosjekt/modell/KortSamling.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package no.hvl.dat100.prosjekt.modell;\r\n\r\nimport no.hvl.dat100.prosjekt.TODO;\r\nimport no.hvl.dat100.prosjekt.kontroll.dommer.Regler;\r\n\r\n/**\r\n * Struktur for å lagre ei samling kort. Kan lagre hele kortstokken. Det finnes\r\n * en konstant i klassen Regler som angir antall kort i hver av de 4 fargene. Når\r\n * programmet er ferdig settes denne til 13, men under utvikling / testing kan\r\n * det være praktisk å ha denne mindre.\r\n * \r\n */\r\npublic class KortSamling {\r\n\r\n\tprivate final int MAKS_KORT = 4 * Regler.MAKS_KORT_FARGE;\r\n\r\n\tprivate Kort[] samling;\r\n\tprivate int antall;\r\n\r\n\t/**\r\n\t * Oppretter en tom Kortsamling med plass til MAKS_KORT (hele kortstokken).\r\n\t */\r\n\tpublic KortSamling() { //Martin (FERDIG)\r\n\r\n\t\tthis.samling = new Kort[MAKS_KORT];\r\n\t}\r\n\r\n\t/**\r\n\t * Returnerer en tabell med kortene i samlinga. Tabellen trenger ikke være\r\n\t * full. Kortene ligger sammenhengende fra starten av tabellen. Kan få\r\n\t * tilgang til antallet ved å bruke metoden getAntallKort(). Metoden er\r\n\t * først og fremst ment å brukes i testklasser. Om man trenger\r\n\t * kortene utenfor, anbefales metoden getAlleKort().\r\n\t * \r\n\t * @return tabell av kort.\r\n\t */\r\n\tpublic Kort[] getSamling() {\r\n\t\t\r\n\t\treturn samling;\r\n\t\t\r\n\t}\r\n\t\r\n\t/**\r\n\t * Antall kort i samlingen.\r\n\t * \r\n\t * @return antall kort i samlinga.\r\n\t */\r\n\tpublic int getAntalKort() { //Martin\r\n\t\t\r\n\t\treturn antall;\r\n\t}\r\n\t\r\n\t/**\r\n\t * Sjekker om samlinga er tom.\r\n\t * \r\n\t * @return true om samlinga er tom, false ellers.\r\n\t */\r\n\tpublic boolean erTom() {\r\n\t\t\r\n\t\t// TODO - START\r\n\t\t\t\t\r\n\t\tthrow new UnsupportedOperationException(TODO.method());\r\n\t\t\r\n\t\t// TODO - END\r\n\t}\r\n\r\n\t/**\r\n\t * Legg et kort til samlinga.\r\n\t * \r\n\t * @param kort\r\n\t *            er kortet som skal leggast til.\r\n\t */\r\n\tpublic void leggTil(Kort kort) {\r\n\t\t\r\n\t\t// TODO - START\r\n\t\t\r\n\t\tthrow new UnsupportedOperationException(TODO.method());\r\n\t\t// TODO - END\r\n\t\t\r\n\t}\r\n\t\r\n\t/**\r\n\t * Legger alle korta (hele kortstokken) til samlinga. Korta vil være sortert\r\n\t * slik at de normalt må stokkes før bruk.\r\n\t */\r\n\tpublic void leggTilAlle() {\r\n\t\t\r\n\t\t// TODO - START\r\n\t\t// Husk: bruk Regler.MAKS_KORT_FARGE for å få antall kort per farge\r\n\t\t\r\n\t\tthrow new UnsupportedOperationException(TODO.method());\r\n\t\t// TODO - END\r\n\t}\r\n\r\n\t/**\r\n\t * Fjerner alle korta fra samlinga slik at den blir tom.\r\n\t */\r\n\tpublic void fjernAlle() {\r\n\t\t\r\n\t\t// TODO - START\r\n\t\t\r\n\t\tthrow new UnsupportedOperationException(TODO.method());\r\n\t\t// TODO - END\r\n\t}\r\n\t\r\n\t/**\r\n\t * Ser på siste kortet i samlinga.\r\n\t * \r\n\t * @return siste kortet i samlinga, men det blir ikke fjernet. Dersom samalinga er tom, returneres\r\n\t *         null.\r\n\t */\r\n\tpublic Kort seSiste() {\r\n\t\t\r\n\t\t// TODO - START\r\n\t\t\r\n\t\tthrow new UnsupportedOperationException(TODO.method());\r\n\r\n\t\t// TODO - END\r\n\t\t\r\n\t}\r\n\r\n\t/**\r\n\t * Tek ut siste kort fra samlinga.\r\n\t * \r\n\t * @return siste kortet i samlinga. Dersom samalinga er tom, returneres\r\n\t *         null.\r\n\t */\r\n\tpublic Kort taSiste() {\r\n\t\t\r\n\t\t// TODO - START\r\n\t\t\r\n\t\tthrow new UnsupportedOperationException(TODO.method());\r\n\t\t\r\n\t\t// TODO - END\r\n\t}\r\n\t\r\n\t/**\r\n\t * Undersøker om et kort finst i samlinga.\r\n\t * \r\n\t * @param kort\r\n\t * \r\n\t * @return true om kortet finst i samlinga, false ellers.\r\n\t */\r\n\tpublic boolean har(Kort kort) {\r\n\t\t\r\n\t\t// TODO - START\r\n\t\t\r\n\t\tthrow new UnsupportedOperationException(TODO.method());\r\n\t\t// return false;\r\n\t\t// TODO - END\r\n\t\t\r\n\t}\r\n\r\n\t/**\r\n\t * Fjernar et kort frå samlinga. Dersom kortet ikke finnest i samlinga,\r\n\t * skjer ingenting med samilingen\r\n\t * \r\n\t * @param kort\r\n\t *            kortet som skal fjernast. Dersom kortet ikke finnes, skjer\r\n\t *            ingenting.\r\n\t * @return true om kortet blev fjernet fra samlinga, false ellers.\r\n\t */\r\n\t\t\t \r\n\tpublic boolean fjern(Kort kort) {\r\n\t\t\r\n\t\t// TODO - START\r\n\t\t\r\n\t\tthrow new UnsupportedOperationException(TODO.method());\r\n\r\n\t\t// TODO - END\r\n\t}\r\n\r\n\t/**\r\n\t * Gir kortene som en tabell av samme lengde som antall kort i samlingen\r\n\t * \r\n\t * @return tabell av kort som er i samlingen, der kort skal ha samme rekkefølge\r\n\t *         som i kortsamlinga.\r\n\t */\r\n\tpublic Kort[] getAllekort() {\r\n\t\t\r\n\t\t// TODO - START\r\n\t\t\r\n\t\tthrow new UnsupportedOperationException(TODO.method());\r\n\r\n\t\t// TODO - END\r\n\t\r\n\t}\r\n\t\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/no/hvl/dat100/prosjekt/modell/KortSamling.java b/src/no/hvl/dat100/prosjekt/modell/KortSamling.java
+--- a/src/no/hvl/dat100/prosjekt/modell/KortSamling.java	(revision b74bb70b038a201bfff2d68d713e9c06ca099a12)
++++ b/src/no/hvl/dat100/prosjekt/modell/KortSamling.java	(date 1633940091754)
+@@ -163,11 +163,9 @@
+ 			 
+ 	public boolean fjern(Kort kort) {
+ 		
+-		// TODO - START
+-		
+-		throw new UnsupportedOperationException(TODO.method());
+-
+-		// TODO - END
++		if (samling.har(kort)) {
++			
++		}
+ 	}
+ 
+ 	/**
+@@ -178,12 +176,12 @@
+ 	 */
+ 	public Kort[] getAllekort() {
+ 		
+-		// TODO - START
++		Kort[]tabell = new Kort[antall];
+ 		
+-		throw new UnsupportedOperationException(TODO.method());
+-
+-		// TODO - END
+-	
++		for (int i = 0; i < tabell.length; i++) {
++			tabell[i] = samling[i];
++		}
++	return tabell;
+ 	}
+ 	
+ }
+Index: .classpath
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<classpath>\r\n\t<classpathentry kind=\"con\" path=\"org.eclipse.jdt.launching.JRE_CONTAINER\">\r\n\t\t<attributes>\r\n\t\t\t<attribute name=\"module\" value=\"true\"/>\r\n\t\t</attributes>\r\n\t</classpathentry>\r\n\t<classpathentry kind=\"src\" path=\"src\"/>\r\n\t<classpathentry kind=\"output\" path=\"bin\"/>\r\n</classpath>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.classpath b/.classpath
+--- a/.classpath	(revision b74bb70b038a201bfff2d68d713e9c06ca099a12)
++++ b/.classpath	(date 1633940492431)
+@@ -6,5 +6,6 @@
+ 		</attributes>
+ 	</classpathentry>
+ 	<classpathentry kind="src" path="src"/>
++	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+ 	<classpathentry kind="output" path="bin"/>
+ </classpath>
