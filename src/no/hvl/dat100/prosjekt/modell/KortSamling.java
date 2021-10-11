@@ -20,12 +20,9 @@ public class KortSamling {
 	/**
 	 * Oppretter en tom Kortsamling med plass til MAKS_KORT (hele kortstokken).
 	 */
-	public KortSamling() {
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.constructor("KortSamling"));
-		// TODO - END
+	public KortSamling() { //Martin (FERDIG)
+
+		this.samling = new Kort[MAKS_KORT];
 	}
 
 	/**
@@ -48,13 +45,9 @@ public class KortSamling {
 	 * 
 	 * @return antall kort i samlinga.
 	 */
-	public int getAntalKort() {
+	public int getAntalKort() { //Martin
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - END
+		return antall;
 	}
 	
 	/**
@@ -144,7 +137,7 @@ public class KortSamling {
 	/**
 	 * Undersøker om et kort finst i samlinga.
 	 * 
-	 * @param kort.
+	 * @param kort
 	 * 
 	 * @return true om kortet finst i samlinga, false ellers.
 	 */
