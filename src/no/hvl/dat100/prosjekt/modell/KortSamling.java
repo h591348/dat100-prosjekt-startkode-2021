@@ -158,11 +158,9 @@ public class KortSamling {
 			 
 	public boolean fjern(Kort kort) {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		if (samling.har(kort)) {
+			
+		}
 	}
 
 	/**
@@ -173,12 +171,12 @@ public class KortSamling {
 	 */
 	public Kort[] getAllekort() {
 		
-		// TODO - START
+		Kort[]tabell = new Kort[antall];
 		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
-	
+		for (int i = 0; i < tabell.length; i++) {
+			tabell[i] = samling[i];
+		}
+	return tabell;
 	}
 	
 }
