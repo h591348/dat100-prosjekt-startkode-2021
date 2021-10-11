@@ -31,12 +31,28 @@ public class KortUtils {
 	 */
 	public static void stokk(KortSamling samling) { //TODO
 
+		if ( samling.erTom() ) { //Hvis inneholder ingen kort, avslutt
+			return;
+		}
+
 		Kort[] tab = samling.getSamling();
+		Kort[] h = new Kort[samling.getAntalKort() ]; //Hjelpemetode
+
+		Random rnd = new Random(); //Random tall generator
 
 		for (int i = 0; i < samling.getAntalKort(); i++) { //getAntalkort = antall kort som skal stokkes
 
-			double rnd = Math.random() * 10; //TODO pass på at det ikke blir duplikater
-			tab[i] = tab[(int) rnd]; //TODO fix
+			int r;
+
+			do {
+				r = rnd.nextInt(samling.getAntalKort() ); //nextInt, lager entilfeldig int fra 0 til antall
+			} while (false /*TODO sjekk etter duplikater*/);
+
+			//Bytter posisjon
+			h[i] = tab[i];
+			tab[i] = tab[r];
+			tab[r] = h[i];
+
 		}
 	}
 	
