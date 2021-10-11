@@ -139,7 +139,7 @@ public class KortSamling {
 	public boolean har(Kort kort) {
 
 		for (int i = 0; i < samling.length; i++) {
-			if (kort == samling[i]){
+			if (kort.lik(samling[i])){
 				return true;
 			}
 		}
