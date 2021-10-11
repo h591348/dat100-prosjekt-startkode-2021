@@ -1,7 +1,7 @@
 package no.hvl.dat100.prosjekt.modell;
 
 /**
- * Klasse for å representere et spillkort. Kortene har en farge (bestemt av
+ * Klasse for å representere et spillko 	rt. Kortene har en farge (bestemt av
  * oppramstypen Kortfarge) og en verdi (1,..., 13) der 1 = ess, 11 = knekt, 12 =
  * dame, 13 = konge.
  *
@@ -130,7 +130,7 @@ public class Kort implements Comparable<Kort> {
 		
 		if (obj == null)
 			return false;
-		
+
 		if (getClass() != obj.getClass())
 			return false;
 

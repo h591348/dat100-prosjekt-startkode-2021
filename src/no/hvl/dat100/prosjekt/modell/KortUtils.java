@@ -29,12 +29,31 @@ public class KortUtils {
 	 * @param samling
 	 * 			samling av kort som skal stokkes. 
 	 */
-	public static void stokk(KortSamling samling) {
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+	public static void stokk(KortSamling samling) { //TODO Test
+
+		if ( samling.erTom() ) { //Hvis samling inneholder 0 kort, avslutt
+			return;
+		}
+
+		Kort[] tab = samling.getSamling();
+		Kort[] h = new Kort[samling.getAntalKort() ]; //Hjelpemetode
+
+		Random rnd = new Random(); //Random tall generator
+
+		for (int i = 0; i < samling.getAntalKort(); i++) { //getAntalkort = antall kort som skal stokkes
+
+			int r;
+
+			do {
+				r = rnd.nextInt(samling.getAntalKort() ); //nextInt, lager entilfeldig int fra 0 til antall TODO sjekk r verdier!
+			} while (false /*TODO sjekk etter duplikater*/);
+
+			//Bytter posisjon
+			h[i] = tab[i];
+			tab[i] = tab[r];
+			tab[r] = h[i];
+
+		}
 	}
 	
 }

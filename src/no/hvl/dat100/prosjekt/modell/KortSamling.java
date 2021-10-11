@@ -76,13 +76,25 @@ public class KortSamling {
 	 * Legger alle korta (hele kortstokken) til samlinga. Korta vil være sortert
 	 * slik at de normalt må stokkes før bruk.
 	 */
-	public void leggTilAlle() {
-		
-		// TODO - START
-		// Husk: bruk Regler.MAKS_KORT_FARGE for å få antall kort per farge
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+	public void leggTilAlle() { //Martin (TODO legg til kortstokken slik at den er full (12 kort)
+		//TODO Husk: bruk Regler.MAKS_KORT_FARGE for å få antall kort per farge
+
+		for (int f = 0; f < Regler.MAKS_KORT_FARGE+1; f++) {
+			for (int v = 0; v < Regler.MAKS_KORT_FARGE; v++) {
+				//Kort k = new Kort(Kortfarge.f, v);
+			}
+		}
+
+		for (Kort k : samling) { //TODO test
+			System.out.println(k.getVerdi() + " " + k.getFarge());
+		}
+
+
+		for (int i = 0; i < samling.length; i++) {
+			//samling[i] = leggTil();
+			//KortUtils.stokk(samling[i]);
+		}
+
 	}
 
 	/**
@@ -131,18 +143,20 @@ public class KortSamling {
 	 * Undersøker om et kort finst i samlinga.
 	 * 
 	 * @param kort
-	 * 
+	 *
 	 * @return true om kortet finst i samlinga, false ellers.
 	 */
 
-	//ERIK
-	public boolean har(Kort kort) {
+	public boolean har(Kort kort) { //ERIK (FERDIG)
 
-		for (int i = 0; i < samling.length; i++) {
+		if (kort != null) {
 
-				if (kort == samling[i]) {
+			for (Kort k : samling) {
+
+				if (kort.equals(k) ) {
 					return true;
 				}
+			}
 		}
 		return false;
 	}
@@ -158,11 +172,10 @@ public class KortSamling {
 	 */
 			 
 	public boolean fjern(Kort kort) {
-		
-	//	if (samling.har(kort)) {
-			
-	//	}
-		return false;
+
+		//if (samling.har(kort)) {
+			return false;
+		//}
 	}
 
 	/**
@@ -171,8 +184,9 @@ public class KortSamling {
 	 * @return tabell av kort som er i samlingen, der kort skal ha samme rekkefølge
 	 *         som i kortsamlinga.
 	 */
+	//Sigve
 	public Kort[] getAllekort() {
-		
+
 		Kort[]tabell = new Kort[antall];
 		
 		for (int i = 0; i < tabell.length; i++) {
