@@ -79,14 +79,14 @@ public class KortSamling {
 	public void leggTilAlle() { //Martin (TODO legg til kortstokken slik at den er full (12 kort)
 		//TODO Husk: bruk Regler.MAKS_KORT_FARGE for å få antall kort per farge
 
-		for (int f = 0; f < 4; f++) {
+		for (int f = 0; f < Regler.MAKS_KORT_FARGE+1; f++) {
 			for (int v = 0; v < Regler.MAKS_KORT_FARGE; v++) {
 				//Kort k = new Kort(Kortfarge.f, v);
 			}
 		}
 
 		for (Kort k : samling) { //TODO test
-			System.out.println(k.getVerdi() + "" + k.getFarge());
+			System.out.println(k.getVerdi() + " " + k.getFarge());
 		}
 
 
@@ -143,11 +143,11 @@ public class KortSamling {
 	 * Undersøker om et kort finst i samlinga.
 	 * 
 	 * @param kort
-	 * 
+	 *
 	 * @return true om kortet finst i samlinga, false ellers.
 	 */
 
-	public boolean har(Kort kort) { //ERIK
+	public boolean har(Kort kort) { //ERIK (FERDIG)
 
 		if (kort != null) {
 

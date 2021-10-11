@@ -29,9 +29,9 @@ public class KortUtils {
 	 * @param samling
 	 * 			samling av kort som skal stokkes. 
 	 */
-	public static void stokk(KortSamling samling) { //TODO
+	public static void stokk(KortSamling samling) { //TODO Test
 
-		if ( samling.erTom() ) { //Hvis inneholder ingen kort, avslutt
+		if ( samling.erTom() ) { //Hvis samling inneholder 0 kort, avslutt
 			return;
 		}
 
@@ -45,7 +45,7 @@ public class KortUtils {
 			int r;
 
 			do {
-				r = rnd.nextInt(samling.getAntalKort() ); //nextInt, lager entilfeldig int fra 0 til antall
+				r = rnd.nextInt(samling.getAntalKort() ); //nextInt, lager entilfeldig int fra 0 til antall TODO sjekk r verdier!
 			} while (false /*TODO sjekk etter duplikater*/);
 
 			//Bytter posisjon
