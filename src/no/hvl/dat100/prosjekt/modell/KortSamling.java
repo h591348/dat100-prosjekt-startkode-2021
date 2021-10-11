@@ -152,7 +152,7 @@ public class KortSamling {
 
 		for (int i = 0; i < samling.length; i++) {
 
-				if (kort == samling[i]) {
+				if (kort.lik(samling[i])){
 					return true;
 				}
 		}
@@ -182,6 +182,7 @@ public class KortSamling {
 	 * @return tabell av kort som er i samlingen, der kort skal ha samme rekkefølge
 	 *         som i kortsamlinga.
 	 */
+	//Sigve
 	public Kort[] getAllekort() {
 
 		Kort[]tabell = new Kort[antall];
