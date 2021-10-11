@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8810f385-b6c2-40bf-a898-887f770cd746" name="Changes" comment="Update .gitignore">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2021__10_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2021__10_28__Changes_.xml" afterDir="false" />
+    <list default="true" id="8810f385-b6c2-40bf-a898-887f770cd746" name="Changes" comment="JUnit tester">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/no/hvl/dat100/prosjekt/modell/Kort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/no/hvl/dat100/prosjekt/modell/Kort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/no/hvl/dat100/prosjekt/modell/KortSamling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/no/hvl/dat100/prosjekt/modell/KortSamling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/no/hvl/dat100/prosjekt/modell/KortUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/no/hvl/dat100/prosjekt/modell/KortUtils.java" afterDir="false" />
     </list>
-    <list id="d7978caa-9469-428d-8d92-92b8f5f429ce" name="Changes by sigve" comment="">
-      <change beforePath="$PROJECT_DIR$/src/no/hvl/dat100/prosjekt/modell/KortSamling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/no/hvl/dat100/prosjekt/modell/KortSamling.java" afterDir="false" />
-    </list>
+    <list id="d7978caa-9469-428d-8d92-92b8f5f429ce" name="Changes by sigve" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,17 +13,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/no/hvl/dat100/prosjekt/modell/KortSamling.java">
-      <ranges>
-        <range start1="78" end1="85" start2="78" end2="97" changelist="8810f385-b6c2-40bf-a898-887f770cd746" />
-        <range start1="142" end1="143" start2="154" end2="155" changelist="d7978caa-9469-428d-8d92-92b8f5f429ce" />
-        <range start1="160" end1="164" start2="172" end2="176" changelist="8810f385-b6c2-40bf-a898-887f770cd746" />
-        <range start1="172" end1="172" start2="184" end2="185" changelist="d7978caa-9469-428d-8d92-92b8f5f429ce" />
-        <range start1="173" end1="174" start2="186" end2="187" changelist="8810f385-b6c2-40bf-a898-887f770cd746" />
-      </ranges>
-    </file>
   </component>
   <component name="ProjectId" id="1zAo29kiULkZJEHpaPpFKDgzrlq" />
   <component name="ProjectViewState">
@@ -55,20 +40,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestKortSamling.TestleggTilHar">
-    <configuration name="VriOtteSpil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="no.hvl.dat100.prosjekt.main.VriOtteSpil" />
-      <module name="dat100-prosjekt-startcode-2021" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="no.hvl.dat100.prosjekt.main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.TestKortUtils.Teststokk">
     <configuration name="TestKortSamling" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="dat100-prosjekt-startcode-2021" />
       <extension name="coverage">
@@ -132,20 +104,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestKortUtils.Teststokk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dat100-prosjekt-startcode-2021" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="no.hvl.dat100.prosjekt.modell.tester.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="no.hvl.dat100.prosjekt.modell.tester" />
+      <option name="MAIN_CLASS_NAME" value="no.hvl.dat100.prosjekt.modell.tester.TestKortUtils" />
+      <option name="METHOD_NAME" value="Teststokk" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.VriOtteSpil" />
       <item itemvalue="JUnit.TestKortSamling" />
       <item itemvalue="JUnit.TestKortSamling.testleggtilAlle" />
       <item itemvalue="JUnit.TestKortSamling.TestgetAlleKort" />
       <item itemvalue="JUnit.TestKortSamling.TestleggTilHar" />
+      <item itemvalue="JUnit.TestKortUtils.Teststokk" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestKortUtils.Teststokk" />
         <item itemvalue="JUnit.TestKortSamling.TestleggTilHar" />
         <item itemvalue="JUnit.TestKortSamling.TestgetAlleKort" />
         <item itemvalue="JUnit.TestKortSamling" />
         <item itemvalue="JUnit.TestKortSamling.testleggtilAlle" />
-        <item itemvalue="Application.VriOtteSpil" />
       </list>
     </recent_temporary>
   </component>
