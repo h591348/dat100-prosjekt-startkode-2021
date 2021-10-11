@@ -159,9 +159,10 @@ public class KortSamling {
 			 
 	public boolean fjern(Kort kort) {
 		
-		if (samling.har(kort)) {
+	//	if (samling.har(kort)) {
 			
-		}
+	//	}
+		return false;
 	}
 
 	/**
