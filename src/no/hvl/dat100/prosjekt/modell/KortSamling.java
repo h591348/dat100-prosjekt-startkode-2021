@@ -141,14 +141,16 @@ public class KortSamling {
 	 * 
 	 * @return true om kortet finst i samlinga, false ellers.
 	 */
+
+	//ERIK
 	public boolean har(Kort kort) {
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// return false;
-		// TODO - END
-		
+
+		for (int i = 0; i < samling.length; i++) {
+			if (kort == samling[i]){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**

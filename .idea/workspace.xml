@@ -10,13 +10,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Pull.Settings">
-    <option name="OPTIONS">
-      <set>
-        <option value="REBASE" />
-      </set>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -39,7 +32,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -91,33 +84,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestKortSamling.TestConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="dat100-prosjekt-startcode-2021" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="no.hvl.dat100.prosjekt.modell.tester.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="no.hvl.dat100.prosjekt.modell.tester" />
-      <option name="MAIN_CLASS_NAME" value="no.hvl.dat100.prosjekt.modell.tester.TestKortSamling" />
-      <option name="METHOD_NAME" value="TestConstructor" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.VriOtteSpil" />
       <item itemvalue="JUnit.TestBord.testConstructor" />
-      <item itemvalue="JUnit.TestKortSamling.TestConstructor" />
       <item itemvalue="JUnit.TestKortSamling" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.TestKortSamling" />
-        <item itemvalue="JUnit.TestKortSamling.TestConstructor" />
-        <item itemvalue="JUnit.TestBord.testConstructor" />
         <item itemvalue="Application.VriOtteSpil" />
       </list>
     </recent_temporary>
@@ -137,8 +111,6 @@
       <workItem from="1633611856099" duration="943000" />
       <workItem from="1633612855973" duration="1586000" />
       <workItem from="1633614454058" duration="945000" />
-      <workItem from="1633935889016" duration="44000" />
-      <workItem from="1633935979653" duration="2533000" />
     </task>
     <task id="LOCAL-00001" summary="Update .gitignore">
       <created>1633614204386</created>
