@@ -147,14 +147,16 @@ public class KortSamling {
 	 * @return true om kortet finst i samlinga, false ellers.
 	 */
 
-	//ERIK
-	public boolean har(Kort kort) {
+	public boolean har(Kort kort) { //ERIK
 
-		for (int i = 0; i < samling.length; i++) {
+		if (kort != null) {
 
-				if (kort.lik(samling[i])){
+			for (Kort k : samling) {
+
+				if (kort.equals(k) ) {
 					return true;
 				}
+			}
 		}
 		return false;
 	}
