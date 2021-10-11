@@ -21,7 +21,7 @@ public class KortSamling {
 	 * Oppretter en tom Kortsamling med plass til MAKS_KORT (hele kortstokken).
 	 */
 	public KortSamling() { //Martin (FERDIG)
-
+		antall = 0;
 		this.samling = new Kort[MAKS_KORT];
 	}
 
@@ -34,7 +34,7 @@ public class KortSamling {
 	 * 
 	 * @return tabell av kort.
 	 */
-	public Kort[] getSamling() {
+	public Kort[] getSamling() { //FERDIG
 		
 		return samling;
 		
@@ -45,7 +45,7 @@ public class KortSamling {
 	 * 
 	 * @return antall kort i samlinga.
 	 */
-	public int getAntalKort() { //Martin
+	public int getAntalKort() { //Martin (FERDIG)
 		
 		return antall;
 	}
@@ -55,13 +55,9 @@ public class KortSamling {
 	 * 
 	 * @return true om samlinga er tom, false ellers.
 	 */
-	public boolean erTom() {
-		
-		// TODO - START
-				
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - END
+	public boolean erTom() { //Martin (FERDIG)
+
+		return antall == 0;
 	}
 
 	/**
@@ -70,13 +66,10 @@ public class KortSamling {
 	 * @param kort
 	 *            er kortet som skal leggast til.
 	 */
-	public void leggTil(Kort kort) {
+	public void leggTil(Kort kort) { //Martin (FERDIG)
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
-		
+		samling[antall] = kort;
+		antall++;
 	}
 	
 	/**
