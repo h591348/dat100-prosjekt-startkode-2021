@@ -24,18 +24,18 @@ public class KortUtils {
 
 			int minst = 0; //Minste posisjon
 			//Finner minste kort i tabellen...
-			for (int pos = 1; pos < samling.getAntalKort() - tallnr; pos++) { //Antall synker med 1 for hvert kort som fjernes
+			for (int pos = 1; pos < samling.getAntalKort() - tallnr; pos++) { //Antall kort i "samling" synker med 1 for hvert kort som fjernes
 
-				//Hvis objekt A er mindre enn objekt B, så er svaret under 0
+				//Returnerer objekt A minus objekt B. Hvis det er mindre enn 0, bytter man posisjon på A og B.
 				if (samling.getSamling()[pos].compareTo(samling.getSamling()[minst]) < 0) {
 
-					minst = pos; //Setter minst
+					minst = pos; //Setter posisjonen til A som ny minst.
 				}
 			}
-			nySamling[tallnr] = samling.getSamling()[minst]; //Setter det minste objektet til første ledige posisjoon i nySamling
-			samling.fjern(samling.getSamling()[minst]); //Fjerner det kortet som er minst, og senker antall med 1
+			nySamling[tallnr] = samling.getSamling()[minst]; //Setter det minste objektet til første ledige posisjon i nySamling
+			samling.fjern(samling.getSamling()[minst]); //Fjerner kortet minst etter å ha satt de inn i ny tabell, og senker antall med 1
 		}
-		//Kopierer ny tabell tilbake til samling tabell, øker antall med 1 for hvert kort
+		//Kopierer ny tabell tilbake til samling tabell, øker antall med 1 for hvert kort som settes inn.
 		for (Kort kort : nySamling) {
 			samling.leggTil(kort);
 		}
