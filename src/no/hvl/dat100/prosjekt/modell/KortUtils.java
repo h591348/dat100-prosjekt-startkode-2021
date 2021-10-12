@@ -49,6 +49,10 @@ public class KortUtils {
 	 */
 	public static void stokk(KortSamling samling) { //(FERDIG)
 
+		if (samling.getAntalKort() <= 1) {
+			return;
+		}
+
 		Kort[] tab = samling.getSamling();
 
 		Random rnd = new Random(); //Random tall generator
