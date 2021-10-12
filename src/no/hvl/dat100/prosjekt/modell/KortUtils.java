@@ -47,39 +47,26 @@ public class KortUtils {
 	 * @param samling
 	 * 			samling av kort som skal stokkes. 
 	 */
-	public static void stokk(KortSamling samling) { //Martin (FERDIG)
+	public static void stokk(KortSamling samling) { //(FERDIG)
 
 		Kort[] tab = samling.getSamling();
-
-		int[] r = new int[samling.getAntalKort() ]; //Random metoden
 
 		Random rnd = new Random(); //Random tall generator
 
 		for (int i = 0; i < samling.getAntalKort(); i++) { //getAntalkort = antall kort som skal stokkes
 
+			int h;
+
 			do {
-				r[i] = rnd.nextInt(samling.getAntalKort() ); //nextInt, lager entilfeldig int fra 0 til antall
-			} while (!sjekkDupe(r, r[i] ) ); //Sjekker at r ikke har lik verdi som tidligere
+				h = rnd.nextInt(samling.getAntalKort() ); //nextInt, lager entilfeldig int fra 0 til antall og ulikt i verdien
+			} while (h == i);
 
 			//Bytter posisjon
 			Kort hjelpevariabel;
 
 			hjelpevariabel = tab[i];
-			tab[i] = tab[r[i] ];
-			tab[r[i] ] = hjelpevariabel;
-
+			tab[i] = tab[h];
+			tab[h] = hjelpevariabel;
 		}
 	}
-
-	//Sjekker om verdien til "int r" ligger lagret i tabell "int[] tab", hvis sant returner TRUE
-	private static boolean sjekkDupe(int[] tab, int r) {
-
-		for (int i : tab) {
-			if (i == r) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
 }
