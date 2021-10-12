@@ -15,25 +15,30 @@ public class KortUtils {
 	 * 			samling av kort som skal sorteres. 
 	 */
 	
-	public static void sorter(KortSamling samling) {
+	public static void sorter(KortSamling samling) { //FERDIG
 
-		int[] nySamling = new int[samling.getSamling().length];
+		Kort[] nySamling = new Kort[samling.getAntalKort()];
 
-		for (int tallnr = 0; tallnr < samling.getSamling().length; tallnr++) {
+		//Leter igjennom hele tabellen
+		for (int tallnr = 0; tallnr < nySamling.length; tallnr++) {
 
-			for (int pos = 1; pos < samling.getSamling().length; pos++) {
+			int minst = 0; //Minste posisjon
+			//Finner minste kort i tabellen...
+			for (int pos = 1; pos < samling.getAntalKort() - tallnr; pos++) { //Antall synker med 1 for hvert kort som fjernes
 
-				if (samling.getSamling()[pos].compareTo(samling.getSamling()[tallnr]
-						< samling.getSamling()[pos+1].compareTo(samling.getSamling()[tallnr+1] )) {
+				//Hvis objekt A er mindre enn objekt B, så er svaret under 0
+				if (samling.getSamling()[pos].compareTo(samling.getSamling()[minst]) < 0) {
 
+					minst = pos; //Setter minst
 				}
 			}
+			nySamling[tallnr] = samling.getSamling()[minst]; //Setter det minste objektet til første ledige posisjoon i nySamling
+			samling.fjern(samling.getSamling()[minst]); //Fjerner det kortet som er minst, og senker antall med 1
 		}
-
-
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		//Kopierer ny tabell tilbake til samling tabell, øker antall med 1 for hvert kort
+		for (Kort kort : nySamling) {
+			samling.leggTil(kort);
+		}
 	}
 	
 	/**
@@ -49,7 +54,7 @@ public class KortUtils {
 		}
 
 		Kort[] tab = samling.getSamling();
-		Kort[] h = new Kort[samling.getAntalKort() ]; //Hjelpemetode
+		Kort[] h = new Kort[samling.getAntalKort() ]; //Hjelpetabell
 
 		int[] r = new int[samling.getAntalKort() ]; //Random metoden
 
