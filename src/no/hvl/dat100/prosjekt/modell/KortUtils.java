@@ -19,14 +19,14 @@ public class KortUtils {
 
 		Kort[] nySamling = new Kort[samling.getAntalKort()];
 
-		//Leter igjennom hele tabellen
+		//Leter igjennom alle Kort i tabellen
 		for (int tallnr = 0; tallnr < nySamling.length; tallnr++) {
 
 			int minst = 0; //Minste posisjon
 			//Finner minste kort i tabellen...
 			for (int pos = 1; pos < samling.getAntalKort() - tallnr; pos++) { //Antall kort i "samling" synker med 1 for hvert kort som fjernes
 
-				//Returnerer objekt A minus objekt B. Hvis det er mindre enn 0, bytter man posisjon på A og B.
+				//Returnerer objekt A minus objekt B. Hvis svaret er mindre enn 0, setter vi minst til posisjon A.
 				if (samling.getSamling()[pos].compareTo(samling.getSamling()[minst]) < 0) {
 
 					minst = pos; //Setter posisjonen til A som ny minst.
@@ -49,12 +49,7 @@ public class KortUtils {
 	 */
 	public static void stokk(KortSamling samling) { //Martin (FERDIG)
 
-		if ( samling.erTom() ) { //Hvis samling inneholder 0 kort, avslutt
-			return;
-		}
-
 		Kort[] tab = samling.getSamling();
-		Kort[] h = new Kort[samling.getAntalKort() ]; //Hjelpetabell
 
 		int[] r = new int[samling.getAntalKort() ]; //Random metoden
 
@@ -67,13 +62,16 @@ public class KortUtils {
 			} while (!sjekkDupe(r, r[i] ) ); //Sjekker at r ikke har lik verdi som tidligere
 
 			//Bytter posisjon
-			h[i] = tab[i];
+			Kort hjelpevariabel;
+
+			hjelpevariabel = tab[i];
 			tab[i] = tab[r[i] ];
-			tab[r[i] ] = h[i];
+			tab[r[i] ] = hjelpevariabel;
 
 		}
 	}
 
+	//Sjekker om verdien til "int r" ligger lagret i tabell "int[] tab", hvis sant returner TRUE
 	private static boolean sjekkDupe(int[] tab, int r) {
 
 		for (int i : tab) {
