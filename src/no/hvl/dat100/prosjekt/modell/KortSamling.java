@@ -181,6 +181,7 @@ public class KortSamling {
 				if (k == (antall-1)){
 					samling[k] = null;
 				}
+				antall --;
 				return true;
 			}
 		}
