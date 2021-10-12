@@ -115,13 +115,16 @@ public class KortSamling {
 	 *         null.
 	 */
 	public Kort seSiste() {
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
+		if (samling == null || antall==0) {
+			return null;
+		}
+			else {
 
-		// TODO - END
-		
+			return samling[antall-1];
+			}
+
+
+
 	}
 
 	/**
