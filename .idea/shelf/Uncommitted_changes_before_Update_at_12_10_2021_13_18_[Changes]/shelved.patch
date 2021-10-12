@@ -1,0 +1,68 @@
+Index: src/no/hvl/dat100/prosjekt/modell/KortUtils.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package no.hvl.dat100.prosjekt.modell;\r\n\r\nimport java.util.Random;\r\n\r\nimport no.hvl.dat100.prosjekt.TODO;\r\n\r\npublic class KortUtils {\r\n\r\n\t/**\r\n\t * Sorterer en samling. Rekkefølgen er bestemt av compareTo() i Kort-klassen.\r\n\t * \r\n\t * @see Kort\r\n\t * \r\n\t * @param samling\r\n\t * \t\t\tsamling av kort som skal sorteres. \r\n\t */\r\n\t\r\n\tpublic static void sorter(KortSamling samling) {\r\n\t\t\r\n\t\t// TODO - START\r\n\t\t\r\n\t\tthrow new UnsupportedOperationException(TODO.method());\r\n\t\t// TODO - END\r\n\t}\r\n\t\r\n\t/**\r\n\t * Stokkar en kortsamling. \r\n\t * \r\n\t * @param samling\r\n\t * \t\t\tsamling av kort som skal stokkes. \r\n\t */\r\n\tpublic static void stokk(KortSamling samling) { //TODO Test\r\n\r\n\t\tif ( samling.erTom() ) { //Hvis samling inneholder 0 kort, avslutt\r\n\t\t\treturn;\r\n\t\t}\r\n\r\n\t\tKort[] tab = samling.getSamling();\r\n\t\tKort[] h = new Kort[samling.getAntalKort() ]; //Hjelpemetode\r\n\r\n\t\tRandom rnd = new Random(); //Random tall generator\r\n\r\n\t\tfor (int i = 0; i < samling.getAntalKort(); i++) { //getAntalkort = antall kort som skal stokkes\r\n\r\n\t\t\tint r;\r\n\r\n\t\t\tdo {\r\n\t\t\t\tr = rnd.nextInt(samling.getAntalKort() ); //nextInt, lager entilfeldig int fra 0 til antall TODO sjekk r verdier!\r\n\t\t\t} while (false /*TODO sjekk etter duplikater*/);\r\n\r\n\t\t\t//Bytter posisjon\r\n\t\t\th[i] = tab[i];\r\n\t\t\ttab[i] = tab[r];\r\n\t\t\ttab[r] = h[i];\r\n\r\n\t\t}\r\n\t}\r\n\t\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/no/hvl/dat100/prosjekt/modell/KortUtils.java b/src/no/hvl/dat100/prosjekt/modell/KortUtils.java
+--- a/src/no/hvl/dat100/prosjekt/modell/KortUtils.java	(revision 35d466659467dc1c8b2159e8866d98ed508b3e28)
++++ b/src/no/hvl/dat100/prosjekt/modell/KortUtils.java	(date 1634036445079)
+@@ -38,22 +38,32 @@
+ 		Kort[] tab = samling.getSamling();
+ 		Kort[] h = new Kort[samling.getAntalKort() ]; //Hjelpemetode
+ 
++		int[] r = new int[samling.getAntalKort() ]; //Random metoden
++
+ 		Random rnd = new Random(); //Random tall generator
+ 
+ 		for (int i = 0; i < samling.getAntalKort(); i++) { //getAntalkort = antall kort som skal stokkes
+ 
+-			int r;
+-
+ 			do {
+-				r = rnd.nextInt(samling.getAntalKort() ); //nextInt, lager entilfeldig int fra 0 til antall TODO sjekk r verdier!
+-			} while (false /*TODO sjekk etter duplikater*/);
++				r[i] = rnd.nextInt(samling.getAntalKort() ); //nextInt, lager entilfeldig int fra 0 til antall TODO sjekk r verdier!
++			} while (!sjekkDupe(r, r[i] ) );
+ 
+ 			//Bytter posisjon
+ 			h[i] = tab[i];
+-			tab[i] = tab[r];
+-			tab[r] = h[i];
++			tab[i] = tab[r[i] ];
++			tab[r[i] ] = h[i];
+ 
+ 		}
+ 	}
++
++	private static boolean sjekkDupe(int[] tab, int r) {
++
++		for (int i : tab) {
++			if (i == r) {
++				return true;
++			}
++		}
++		return false;
++	}
+ 	
+ }
+Index: src/no/hvl/dat100/prosjekt/modell/KortSamling.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package no.hvl.dat100.prosjekt.modell;\r\n\r\nimport no.hvl.dat100.prosjekt.TODO;\r\nimport no.hvl.dat100.prosjekt.kontroll.dommer.Regler;\r\n\r\n/**\r\n * Struktur for å lagre ei samling kort. Kan lagre hele kortstokken. Det finnes\r\n * en konstant i klassen Regler som angir antall kort i hver av de 4 fargene. Når\r\n * programmet er ferdig settes denne til 13, men under utvikling / testing kan\r\n * det være praktisk å ha denne mindre.\r\n * \r\n */\r\npublic class KortSamling {\r\n\r\n\tprivate final int MAKS_KORT = 4 * Regler.MAKS_KORT_FARGE;\r\n\r\n\tprivate Kort[] samling;\r\n\tprivate int antall;\r\n\r\n\t/**\r\n\t * Oppretter en tom Kortsamling med plass til MAKS_KORT (hele kortstokken).\r\n\t */\r\n\tpublic KortSamling() { //Martin (FERDIG)\r\n\t\tantall = 0;\r\n\t\tthis.samling = new Kort[MAKS_KORT];\r\n\t}\r\n\r\n\t/**\r\n\t * Returnerer en tabell med kortene i samlinga. Tabellen trenger ikke være\r\n\t * full. Kortene ligger sammenhengende fra starten av tabellen. Kan få\r\n\t * tilgang til antallet ved å bruke metoden getAntallKort(). Metoden er\r\n\t * først og fremst ment å brukes i testklasser. Om man trenger\r\n\t * kortene utenfor, anbefales metoden getAlleKort().\r\n\t * \r\n\t * @return tabell av kort.\r\n\t */\r\n\tpublic Kort[] getSamling() { //FERDIG\r\n\t\t\r\n\t\treturn samling;\r\n\t\t\r\n\t}\r\n\t\r\n\t/**\r\n\t * Antall kort i samlingen.\r\n\t * \r\n\t * @return antall kort i samlinga.\r\n\t */\r\n\tpublic int getAntalKort() { //Martin (FERDIG)\r\n\t\t\r\n\t\treturn antall;\r\n\t}\r\n\t\r\n\t/**\r\n\t * Sjekker om samlinga er tom.\r\n\t * \r\n\t * @return true om samlinga er tom, false ellers.\r\n\t */\r\n\tpublic boolean erTom() { //Martin (FERDIG)\r\n\r\n\t\treturn antall == 0;\r\n\t}\r\n\r\n\t/**\r\n\t * Legg et kort til samlinga.\r\n\t * \r\n\t * @param kort\r\n\t *            er kortet som skal leggast til.\r\n\t */\r\n\tpublic void leggTil(Kort kort) { //Martin (FERDIG)\r\n\t\t\r\n\t\tsamling[antall] = kort;\r\n\t\tantall++;\r\n\t}\r\n\t\r\n\t/**\r\n\t * Legger alle korta (hele kortstokken) til samlinga. Korta vil være sortert\r\n\t * slik at de normalt må stokkes før bruk.\r\n\t */\r\n\tpublic void leggTilAlle() { //Martin (TODO legg til kortstokken slik at den er full (12 kort)\r\n\t\t//TODO Husk: bruk Regler.MAKS_KORT_FARGE for å få antall kort per farge\r\n\r\n\t\tfor (int f = 0; f < Regler.MAKS_KORT_FARGE+1; f++) {\r\n\t\t\tfor (int v = 0; v < Regler.MAKS_KORT_FARGE; v++) {\r\n\t\t\t\t//Kort k = new Kort(Kortfarge.f, v);\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\tfor (Kort k : samling) { //TODO test\r\n\t\t\tSystem.out.println(k.getVerdi() + \" \" + k.getFarge());\r\n\t\t}\r\n\r\n\r\n\t\tfor (int i = 0; i < samling.length; i++) {\r\n\t\t\t//samling[i] = leggTil();\r\n\t\t\t//KortUtils.stokk(samling[i]);\r\n\t\t}\r\n\r\n\t}\r\n\r\n\t/**\r\n\t * Fjerner alle korta fra samlinga slik at den blir tom.\r\n\t */\r\n\tpublic void fjernAlle() {\r\n\t\t\r\n\t\t// TODO - START\r\n\t\t\r\n\t\tthrow new UnsupportedOperationException(TODO.method());\r\n\t\t// TODO - END\r\n\t}\r\n\t\r\n\t/**\r\n\t * Ser på siste kortet i samlinga.\r\n\t * \r\n\t * @return siste kortet i samlinga, men det blir ikke fjernet. Dersom samalinga er tom, returneres\r\n\t *         null.\r\n\t */\r\n\tpublic Kort seSiste() {\r\n\t\t\r\n\t\t// TODO - START\r\n\t\t\r\n\t\tthrow new UnsupportedOperationException(TODO.method());\r\n\r\n\t\t// TODO - END\r\n\t\t\r\n\t}\r\n\r\n\t/**\r\n\t * Tek ut siste kort fra samlinga.\r\n\t * \r\n\t * @return siste kortet i samlinga. Dersom samalinga er tom, returneres\r\n\t *         null.\r\n\t */\r\n\tpublic Kort taSiste() {\r\n\t\t\r\n\t\t// TODO - START\r\n\t\t\r\n\t\tthrow new UnsupportedOperationException(TODO.method());\r\n\t\t\r\n\t\t// TODO - END\r\n\t}\r\n\t\r\n\t/**\r\n\t * Undersøker om et kort finst i samlinga.\r\n\t * \r\n\t * @param kort\r\n\t *\r\n\t * @return true om kortet finst i samlinga, false ellers.\r\n\t */\r\n\r\n\tpublic boolean har(Kort kort) { //ERIK (FERDIG)\r\n\r\n\t\tif (kort != null) {\r\n\r\n\t\t\tfor (Kort k : samling) {\r\n\r\n\t\t\t\tif (kort.equals(k) ) {\r\n\t\t\t\t\treturn true;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t\treturn false;\r\n\t}\r\n\r\n\t/**\r\n\t * Fjernar et kort frå samlinga. Dersom kortet ikke finnest i samlinga,\r\n\t * skjer ingenting med samilingen\r\n\t * \r\n\t * @param kort\r\n\t *            kortet som skal fjernast. Dersom kortet ikke finnes, skjer\r\n\t *            ingenting.\r\n\t * @return true om kortet blev fjernet fra samlinga, false ellers.\r\n\t */\r\n\t\t\t \r\n\tpublic boolean fjern(Kort kort) {\r\n\r\n\t\t//if (samling.har(kort)) {\r\n\t\t\treturn false;\r\n\t\t//}\r\n\t}\r\n\r\n\t/**\r\n\t * Gir kortene som en tabell av samme lengde som antall kort i samlingen\r\n\t * \r\n\t * @return tabell av kort som er i samlingen, der kort skal ha samme rekkefølge\r\n\t *         som i kortsamlinga.\r\n\t */\r\n\t//Sigve\r\n\tpublic Kort[] getAllekort() {\r\n\r\n\t\tKort[]tabell = new Kort[antall];\r\n\t\t\r\n\t\tfor (int i = 0; i < tabell.length; i++) {\r\n\t\t\ttabell[i] = samling[i];\r\n\t\t}\r\n\treturn tabell;\r\n\t}\r\n\t\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/no/hvl/dat100/prosjekt/modell/KortSamling.java b/src/no/hvl/dat100/prosjekt/modell/KortSamling.java
+--- a/src/no/hvl/dat100/prosjekt/modell/KortSamling.java	(revision 35d466659467dc1c8b2159e8866d98ed508b3e28)
++++ b/src/no/hvl/dat100/prosjekt/modell/KortSamling.java	(date 1634034257007)
+@@ -173,7 +173,7 @@
+ 			 
+ 	public boolean fjern(Kort kort) {
+ 
+-		//if (samling.har(kort)) {
++		//if (this.har(kort)) {
+ 			return false;
+ 		//}
+ 	}

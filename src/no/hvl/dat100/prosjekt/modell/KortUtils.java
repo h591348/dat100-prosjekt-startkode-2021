@@ -16,8 +16,21 @@ public class KortUtils {
 	 */
 	
 	public static void sorter(KortSamling samling) {
-		
-		// TODO - START
+
+		int[] nySamling = new int[samling.getSamling().length];
+
+		for (int tallnr = 0; tallnr < samling.getSamling().length; tallnr++) {
+
+			for (int pos = 1; pos < samling.getSamling().length; pos++) {
+
+				if (samling.getSamling()[pos].compareTo(samling.getSamling()[tallnr]
+						< samling.getSamling()[pos+1].compareTo(samling.getSamling()[tallnr+1] )) {
+
+				}
+			}
+		}
+
+
 		
 		throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
@@ -29,7 +42,7 @@ public class KortUtils {
 	 * @param samling
 	 * 			samling av kort som skal stokkes. 
 	 */
-	public static void stokk(KortSamling samling) { //TODO Test
+	public static void stokk(KortSamling samling) { //Martin (FERDIG)
 
 		if ( samling.erTom() ) { //Hvis samling inneholder 0 kort, avslutt
 			return;
@@ -38,22 +51,32 @@ public class KortUtils {
 		Kort[] tab = samling.getSamling();
 		Kort[] h = new Kort[samling.getAntalKort() ]; //Hjelpemetode
 
+		int[] r = new int[samling.getAntalKort() ]; //Random metoden
+
 		Random rnd = new Random(); //Random tall generator
 
 		for (int i = 0; i < samling.getAntalKort(); i++) { //getAntalkort = antall kort som skal stokkes
 
-			int r;
-
 			do {
-				r = rnd.nextInt(samling.getAntalKort() ); //nextInt, lager entilfeldig int fra 0 til antall TODO sjekk r verdier!
-			} while (false /*TODO sjekk etter duplikater*/);
+				r[i] = rnd.nextInt(samling.getAntalKort() ); //nextInt, lager entilfeldig int fra 0 til antall
+			} while (!sjekkDupe(r, r[i] ) ); //Sjekker at r ikke har lik verdi som tidligere
 
 			//Bytter posisjon
 			h[i] = tab[i];
-			tab[i] = tab[r];
-			tab[r] = h[i];
+			tab[i] = tab[r[i] ];
+			tab[r[i] ] = h[i];
 
 		}
+	}
+
+	private static boolean sjekkDupe(int[] tab, int r) {
+
+		for (int i : tab) {
+			if (i == r) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 }
