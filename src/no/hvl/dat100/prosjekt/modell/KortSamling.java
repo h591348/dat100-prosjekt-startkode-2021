@@ -175,13 +175,14 @@ public class KortSamling {
 	 */
 			 
 	public boolean fjern(Kort kort) {
-		for (Kort k : samling){
-			if (k.equals(kort)) {
+		for (Kort k = 0; k < samling.length; k++){
+			if (k.equals(kort) && k != antall-1) {
 				k = samling[antall-1];
-				antall--;
+				if (antall>0){
+					antall--;
+				}
 				return true;
 			}
-		
 		}
 		return false;
 	}
