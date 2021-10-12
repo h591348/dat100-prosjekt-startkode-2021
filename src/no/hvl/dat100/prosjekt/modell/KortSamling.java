@@ -176,7 +176,7 @@ public class KortSamling {
 			 
 	public boolean fjern(Kort kort) {
 		for (int k = 0; k < antall; k++){
-			if (samling[k].equals(kort) && antall!=0) {
+			if (samling[k].equals(kort)) {
 				samling[k] = samling[antall-1];
 					samling[antall-1] = null;
 				antall --;
