@@ -134,12 +134,18 @@ public class KortSamling {
 	 *         null.
 	 */
 	public Kort taSiste() {
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - END
+
+		Kort sisteKort = new Kort(null, 0);
+		if (antall == 0) {
+			return null;
+		}
+		else{
+			sisteKort = samling[antall-1];
+			fjern(samling[antall-1]);
+
+		}
+		return sisteKort;
+
 	}
 	
 	/**
