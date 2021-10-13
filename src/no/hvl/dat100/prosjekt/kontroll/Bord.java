@@ -155,7 +155,7 @@ public class Bord {
 	 */
 	public void leggNedBunkeTil(Kort k) {  //FERDIG | Legger ned et kort på TilBunken | Bruker metoden leggTil fra KortSamling.java.
 		
-		getBunkeTil().leggTil(k);
+		bunkeTil.leggTil(k);
 				
 	}
 }
