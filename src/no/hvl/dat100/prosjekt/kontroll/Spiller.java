@@ -63,22 +63,14 @@ public abstract class Spiller implements ISpiller {
 		return hand;
 	}
 
-	public int getAntallTrekk() {
+	public int getAntallTrekk() { //FERDIG
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		return antalltrekk;
 	}
 
-	public Spillere hvem() {
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
+	public Spillere hvem() { //FERDIG
 
-		// TODO - END
+		return spiller;
 		
 	}
 
