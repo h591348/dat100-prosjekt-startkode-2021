@@ -33,10 +33,11 @@ public abstract class Spiller implements ISpiller {
 	 */
 	public Spiller() {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.constructor("Spiller"));
-		// TODO - END
+		this.spiller = Spillere.INGEN;
+		this.antalltrekk=0;
+		this.hand = getHand();
+
+
 	}
 
 	/**
