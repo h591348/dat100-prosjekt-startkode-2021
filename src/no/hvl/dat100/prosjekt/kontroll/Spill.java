@@ -113,9 +113,9 @@ public class Spill {
 	 */
 	public Kort trekkFraBunke(ISpiller spiller) {
 
-		bord.snuTilBunken();
-		spiller.trekker(bord.taOversteFraBunke());
-		return bord.taOversteFraBunke();
+		bord.snuTilBunken(); //Metoden sjekker selv om bunken må snus eller ikke.
+		spiller.trekker(bord.taOversteFraBunke()); //Tar det øverste i fra-bunken og legger på hånden
+		return bord.taOversteFraBunke();		   //Returnerer kortet som trekkes
 
 	}
 
