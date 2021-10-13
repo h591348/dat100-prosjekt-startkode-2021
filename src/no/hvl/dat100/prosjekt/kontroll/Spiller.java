@@ -102,14 +102,11 @@ public abstract class Spiller implements ISpiller {
 		hand.fjernAlle();
 	}
 
-	public void trekker(Kort kort) { //Trekker kort fra hand?
-
-		for (Kort k : hand.getSamling()) {
-			if (k == kort) {
-				
+	public void trekker(Kort kort) { //FERDIG
+				hand.leggTil(kort);
 				antalltrekk++;
-			}
-		}
-		
+
 	}
+		
 }
+
