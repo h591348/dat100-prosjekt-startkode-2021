@@ -113,11 +113,10 @@ public class Spill {
 	 */
 	public Kort trekkFraBunke(ISpiller spiller) {
 
-		// TODO - START
+		bord.snuTilBunken();
+		spiller.trekker(bord.taOversteFraBunke());
+		return bord.taOversteFraBunke();
 
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
 	}
 
 	/**
