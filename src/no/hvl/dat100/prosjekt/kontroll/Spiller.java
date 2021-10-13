@@ -33,10 +33,10 @@ public abstract class Spiller implements ISpiller {
 	 */
 	public Spiller() { //FERDIG
 
-		this.hand = new KortSamling();
+
 		this.spiller = Spillere.INGEN;
 		this.antalltrekk = 0;
-
+		this.hand = new KortSamling();
 	}
 
 	/**
@@ -80,13 +80,12 @@ public abstract class Spiller implements ISpiller {
 		this.antalltrekk = t;
 	}
 
-	public boolean erFerdig() {
+	public boolean erFerdig() {  //FERDIG
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
-		
+		if (hand.erTom()){
+		return true;
+		}
+		return false;
 	}
 
 	public void leggTilKort(Kort kort) {
