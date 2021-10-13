@@ -137,8 +137,8 @@ public class Bord {
 		}*/
 
 		if (bunkefraTom()){  //implementer start i Spill.java
-			Kort oversteKort = bunkeTil.taSiste();
-			bunkeFra.leggTilAlle();
+			Kort oversteKort = bunkeTil.seSiste();
+			bunkeFra.leggTilAlle(); //Feilen ligger her, det legges til alle (12) kort i stedet for alle fra til-bunken.
 			bunkeFra.fjern(oversteKort);
 			bunkeTil.fjernAlle();
 			bunkeTil.leggTil(oversteKort);
