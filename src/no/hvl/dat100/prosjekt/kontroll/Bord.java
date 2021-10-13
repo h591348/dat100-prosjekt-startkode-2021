@@ -102,7 +102,7 @@ public class Bord {
 	public void vendOversteFraBunke() {
 		
 		// TODO - START
-		
+
 		throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
 		
@@ -115,12 +115,8 @@ public class Bord {
 	 */
 	
 	public Kort taOversteFraBunke() {
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
 
-		// TODO - END
+		return bunkeFra.taSiste();
 	}
 	
 	/**
