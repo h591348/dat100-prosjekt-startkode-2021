@@ -136,7 +136,7 @@ public class Bord {
 			bunkeTil.leggTil(oversteKort);
 		}*/
 
-		if (bunkefraTom()){
+		if (bunkefraTom()){  //implementer start i Spill.java
 			Kort oversteKort = bunkeTil.taSiste();
 			bunkeFra.leggTilAlle();
 			bunkeFra.fjern(oversteKort);
