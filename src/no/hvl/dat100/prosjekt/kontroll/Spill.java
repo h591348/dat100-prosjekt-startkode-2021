@@ -29,7 +29,7 @@ public class Spill {
 	public Spill() { //TODO TEST
 		
 		this.nord.getHand();
-		this.syd = getSyd()getMetod;
+		this.syd = getSyd();
 		this.bord = getBord();
 
 		
