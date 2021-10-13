@@ -55,11 +55,10 @@ public class Bord {
 	 */
 	public boolean bunketilTom() {
 		
-		// TODO - START
-				
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		if (bunkeTil.erTom()){
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -68,12 +67,11 @@ public class Bord {
 	 * @return true om fra-bunken er tom, false ellers.
 	 */
 	public boolean bunkefraTom() {
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-	
-		// TODO - END
+
+		if (bunkeFra.erTom()){
+			return true;
+		}
+		return false;
 		
 	}
 	
