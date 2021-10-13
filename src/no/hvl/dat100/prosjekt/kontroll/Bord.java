@@ -94,11 +94,9 @@ public class Bord {
 	 * billedsiden opp, men det trenger ikke gruppen tenke på).
 	 */
 	public void vendOversteFraBunke() {
-		
-		// TODO - START
 
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		Kort oversteKort = bunkeFra.taSiste();
+		bunkeTil.leggTil(oversteKort);
 		
 	}
 		
@@ -131,11 +129,21 @@ public class Bord {
 	 * til-bunken. Det vil nå være det eneste kortet i til-bunken.
 	 */
 	public void snuTilBunken() {
+		/*if (bunkefraTom()) {
+			Kort oversteKort = bunkeTil.taSiste();
+			bunkeFra = bunkeTil;
+			bunkeTil.fjernAlle();
+			bunkeTil.leggTil(oversteKort);
+		}*/
 
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		if (bunkefraTom()){
+			Kort oversteKort = bunkeTil.taSiste();
+			bunkeFra.leggTilAlle();
+			bunkeFra.fjern(oversteKort);
+			bunkeTil.fjernAlle();
+			bunkeTil.leggTil(oversteKort);
+			KortUtils.stokk(bunkeFra);
+		}
 	}
 		
 	/**
