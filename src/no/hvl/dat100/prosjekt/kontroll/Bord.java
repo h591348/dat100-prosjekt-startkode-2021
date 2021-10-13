@@ -31,7 +31,7 @@ public class Bord {
 	 * 
 	 * @return referanse/peker til til-bunken.
 	 */
-	public KortSamling getBunkeTil() {
+	public KortSamling getBunkeTil() { //FERDIG
 		
 		return bunkeTil;
 		
@@ -42,7 +42,7 @@ public class Bord {
 	 * 
 	 * @return referanse/peker til fra-bunken.
 	 */
-	public KortSamling getBunkeFra() {
+	public KortSamling getBunkeFra() { //FERDIG
 		
 		return bunkeFra;
 		
@@ -54,11 +54,8 @@ public class Bord {
 	 * @return true om til-bunken er tom, false ellers.
 	 */
 	public boolean bunketilTom() {
-		
-		if (bunkeTil.erTom()){
-			return true;
-		}
-		return false;
+
+		return bunkeTil.erTom();
 	}
 
 	/**
@@ -68,11 +65,8 @@ public class Bord {
 	 */
 	public boolean bunkefraTom() {
 
-		if (bunkeFra.erTom()){
-			return true;
-		}
-		return false;
-		
+		return bunkeFra.erTom();
+
 	}
 	
 	/**
@@ -127,11 +121,7 @@ public class Bord {
 	 */
 	public Kort seOversteBunkeTil() {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		return getBunkeTil().seSiste();
 	}
 	
 	/**
@@ -157,10 +147,7 @@ public class Bord {
 	 */
 	public void leggNedBunkeTil(Kort k) {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		getBunkeTil().leggTil(k);
 				
 	}
 }
