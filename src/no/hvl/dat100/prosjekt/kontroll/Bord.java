@@ -128,7 +128,7 @@ public class Bord {
 	 * Denne stokkes og kortet som man har tatt vare pÂ legges tilbake i
 	 * til-bunken. Det vil nå være det eneste kortet i til-bunken.
 	 */
-	public void snuTilBunken() {
+	public void snuTilBunken() { //TODO fix feil svar
 		/*if (bunkefraTom()) {
 			Kort oversteKort = bunkeTil.taSiste();
 			bunkeFra = bunkeTil;
