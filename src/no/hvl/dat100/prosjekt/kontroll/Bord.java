@@ -53,7 +53,7 @@ public class Bord {
 	 * 
 	 * @return true om til-bunken er tom, false ellers.
 	 */
-	public boolean bunketilTom() {
+	public boolean bunketilTom() {  //FERDIG   Bruker metoden erTom fra KortSamling.java
 
 		return bunkeTil.erTom();
 	}
@@ -63,7 +63,7 @@ public class Bord {
 	 * 
 	 * @return true om fra-bunken er tom, false ellers.
 	 */
-	public boolean bunkefraTom() {
+	public boolean bunkefraTom() {  //FERDIG  Bruker metoden erTom fra KortSamling.java
 
 		return bunkeFra.erTom();
 
@@ -74,7 +74,7 @@ public class Bord {
 	 * 
 	 * @return antall kort i fra-bunken.
 	 */
-	public int antallBunkeFra() {
+	public int antallBunkeFra() {  //FERDIG  Bruker metoden getAntalKort fra KortSamling.java
 		
 		return bunkeFra.getAntalKort();
 	}
@@ -84,7 +84,7 @@ public class Bord {
 	 * 
 	 * @return antall kort i til-bunken.
 	 */
-	public int antallBunkeTil() {
+	public int antallBunkeTil() {  //FERDIG  Bruker metoden getAntalKort fra KortSamling.java
 		
 		return bunkeTil.getAntalKort();
 	}
@@ -108,7 +108,7 @@ public class Bord {
 	 * @return peker/referanse til det kort som blev tatt fra fra-bunken
 	 */
 	
-	public Kort taOversteFraBunke() {
+	public Kort taOversteFraBunke() {  //FERDIG  Bruker metoden taSiste fra KortSamling.java
 
 		return bunkeFra.taSiste();
 	}
@@ -119,7 +119,7 @@ public class Bord {
 	 * 
 	 * @return peker/referanse til øverste kortet i til-bunken.
 	 */
-	public Kort seOversteBunkeTil() {
+	public Kort seOversteBunkeTil() {  //FERDIG  Bruker metoden seSiste fra KortSamling.java
 		
 		return getBunkeTil().seSiste();
 	}
@@ -145,7 +145,7 @@ public class Bord {
 	 * 			kort som skal legges ned. 
 	 * 	
 	 */
-	public void leggNedBunkeTil(Kort k) {
+	public void leggNedBunkeTil(Kort k) {  //FERDIG  Bruker metoden leggTil fra KortSamling.java
 		
 		getBunkeTil().leggTil(k);
 				

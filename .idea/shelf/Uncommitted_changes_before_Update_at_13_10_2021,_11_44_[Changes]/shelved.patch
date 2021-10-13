@@ -1,0 +1,55 @@
+Index: src/no/hvl/dat100/prosjekt/kontroll/Bord.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package no.hvl.dat100.prosjekt.kontroll;\n\nimport no.hvl.dat100.prosjekt.modell.KortSamling;\nimport no.hvl.dat100.prosjekt.modell.KortUtils;\nimport no.hvl.dat100.prosjekt.TODO;\nimport no.hvl.dat100.prosjekt.modell.Kort;\n\n/**\n * Klasse som implementerer bordet som spilles på. \n * \n * Klassen har objektvariablene bunkeTil og bunkeFra som skal brukes til å representere \n * kortene som er i de to bunker på border. \n */\npublic class Bord {\n\n\tprivate KortSamling bunkeFra;\n\tprivate KortSamling bunkeTil;\n\n\t/**\n\t * Metoden oppretter to bunker, til- og fra-bunken\n\t * Alle kortene legges til fra-bunken. \n\t */\n\tpublic Bord() {\n\t\tthis.bunkeFra = new KortSamling();\n\t\tthis.bunkeTil = new KortSamling();\n\t\tbunkeFra.leggTilAlle();\n\t}\n\t\n\t/**\n\t * Gir peker/referanse til til-bunken.\n\t * \n\t * @return referanse/peker til til-bunken.\n\t */\n\tpublic KortSamling getBunkeTil() {\n\t\t\n\t\treturn bunkeTil;\n\t\t\n\t}\n\n\t/**\n\t * Gir peker/referanse til fra-bunken.\n\t * \n\t * @return referanse/peker til fra-bunken.\n\t */\n\tpublic KortSamling getBunkeFra() {\n\t\t\n\t\treturn bunkeFra;\n\t\t\n\t}\n\t\n\t/**\n\t * Sjekker om til-bunken er tom.\n\t * \n\t * @return true om til-bunken er tom, false ellers.\n\t */\n\tpublic boolean bunketilTom() {\n\t\t\n\t\tif (bunkeTil.erTom()){\n\t\t\treturn true;\n\t\t}\n\t\treturn false;\n\t}\n\n\t/**\n\t * Sjekker om fra-bunken er tom.\n\t * \n\t * @return true om fra-bunken er tom, false ellers.\n\t */\n\tpublic boolean bunkefraTom() {\n\n\t\tif (bunkeFra.erTom()){\n\t\t\treturn true;\n\t\t}\n\t\treturn false;\n\t\t\n\t}\n\t\n\t/**\n\t * Gir antall kort i fra-bunken.\n\t * \n\t * @return antall kort i fra-bunken.\n\t */\n\tpublic int antallBunkeFra() {\n\t\t\n\t\treturn bunkeFra.getAntalKort();\n\t}\n\n\t/**\n\t * Gir antall kort i til-bunken.\n\t * \n\t * @return antall kort i til-bunken.\n\t */\n\tpublic int antallBunkeTil() {\n\t\t\n\t\treturn bunkeTil.getAntalKort();\n\t}\n\t\n\t/**\n\t * Tar øverste kortet fra fra-bunken og legger dettte til til-bunken (med\n\t * billedsiden opp, men det trenger ikke gruppen tenke på).\n\t */\n\tpublic void vendOversteFraBunke() {\n\t\t\n\t\t// TODO - START\n\n\t\tthrow new UnsupportedOperationException(TODO.method());\n\t\t// TODO - END\n\t\t\n\t}\n\t\t\n\t/**\n\t * Tar øverste kortet fra fra-bunken.\n\t * \n\t * @return peker/referanse til det kort som blev tatt fra fra-bunken\n\t */\n\t\n\tpublic Kort taOversteFraBunke() {\n\n\t\treturn bunkeFra.taSiste();\n\t}\n\t\n\t/**\n\t * Metode som leser øverste kortet i til-bunken. Kortet vil fremdeles være\n\t * øverst i til-bunken etter at metoden er utført.\n\t * \n\t * @return peker/referanse til øverste kortet i til-bunken.\n\t */\n\tpublic Kort seOversteBunkeTil() {\n\t\t\n\t\t// TODO - START\n\t\t\n\t\tthrow new UnsupportedOperationException(TODO.method());\n\n\t\t// TODO - END\n\t}\n\t\n\t/**\n\t * Når fra-bunken blir tom, tar man vare på kortet pÂ toppen av til-bunken.\n\t * Deretter legges alle den andre kortene i til-bunken over i fra-bunken.\n\t * Denne stokkes og kortet som man har tatt vare pÂ legges tilbake i\n\t * til-bunken. Det vil nå være det eneste kortet i til-bunken.\n\t */\n\tpublic void snuTilBunken() {\n\n\t\t// TODO - START\n\t\t\n\t\tthrow new UnsupportedOperationException(TODO.method());\n\t\t// TODO - END\n\t}\n\t\t\n\t/**\n\t * Metode som legger et kort i til-bunken. \n\t * \n\t * @param k\n\t * \t\t\tkort som skal legges ned. \n\t * \t\n\t */\n\tpublic void leggNedBunkeTil(Kort k) {\n\t\t\n\t\t// TODO - START\n\t\t\n\t\tthrow new UnsupportedOperationException(TODO.method());\n\t\t// TODO - END\n\t\t\t\t\n\t}\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/no/hvl/dat100/prosjekt/kontroll/Bord.java b/src/no/hvl/dat100/prosjekt/kontroll/Bord.java
+--- a/src/no/hvl/dat100/prosjekt/kontroll/Bord.java	(revision 3ba04d208ddee20a935ea5a3029303d7a634f73a)
++++ b/src/no/hvl/dat100/prosjekt/kontroll/Bord.java	(date 1634118298358)
+@@ -58,7 +58,7 @@
+ 		if (bunkeTil.erTom()){
+ 			return true;
+ 		}
+-		return false;
++		return false;   //Bruker erTom metoden fra KortSamling.java
+ 	}
+ 
+ 	/**
+@@ -71,7 +71,7 @@
+ 		if (bunkeFra.erTom()){
+ 			return true;
+ 		}
+-		return false;
++		return false;   //Bruker erTom metoden fra KortSamling.java
+ 		
+ 	}
+ 	
+@@ -82,7 +82,7 @@
+ 	 */
+ 	public int antallBunkeFra() {
+ 		
+-		return bunkeFra.getAntalKort();
++		return bunkeFra.getAntalKort();  //Bruker getAntalKort metoden fra KortSamling.java
+ 	}
+ 
+ 	/**
+@@ -92,7 +92,7 @@
+ 	 */
+ 	public int antallBunkeTil() {
+ 		
+-		return bunkeTil.getAntalKort();
++		return bunkeTil.getAntalKort();  //Bruker getAntalKort metoden fra KortSamling.java
+ 	}
+ 	
+ 	/**
+@@ -116,7 +116,7 @@
+ 	
+ 	public Kort taOversteFraBunke() {
+ 
+-		return bunkeFra.taSiste();
++		return bunkeFra.taSiste();  //Bruker taSiste metoden fra KortSamling.java
+ 	}
+ 	
+ 	/**
