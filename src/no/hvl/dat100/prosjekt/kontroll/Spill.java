@@ -9,6 +9,7 @@ import no.hvl.dat100.prosjekt.kontroll.spill.Handling;
 import no.hvl.dat100.prosjekt.kontroll.spill.Spillere;
 import no.hvl.dat100.prosjekt.modell.Kort;
 import no.hvl.dat100.prosjekt.modell.KortUtils;
+import no.hvl.dat100.prosjekt.modell.Kortfarge;
 
 /**
  * Klassen har objektvariaber som er referanser til de spillerne, nord og syd
@@ -29,8 +30,8 @@ public class Spill {
 	public Spill() { //TODO TEST
 
 		this.bord = new Bord();
-		//this.nord = nord.getHand();
-		//this.syd;
+		this.nord = new NordSpiller(Spillere.NORD);
+		this.syd = new SydSpiller(Spillere.SYD);
 
 	}
 
@@ -76,9 +77,9 @@ public class Spill {
 	 * Nord har type RandomSpiller (som er forhåndefinert). Syd vil være spiller
 	 * av en klasse laget av gruppen (implementeres i oppgave 3).
 	 */
-	public void start() {
+	public void start() { //TODO fullfor
 		
-		// TODO - START
+		Spill spill = new Spill();
 		
 		throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
