@@ -28,7 +28,7 @@ public class Spill {
 	// antall kort som skal deles ut til hver spiller ved start
 	public final static int ANTALL_KORT_START = Regler.ANTALL_KORT_START;
 	
-	public Spill() { //TODO TEST
+	public Spill() { //FERDIG
 
 		this.bord = new Bord();
 		this.nord = new NordSpiller(Spillere.NORD);
@@ -153,14 +153,14 @@ public class Spill {
 	 * 
 	 * @return true dersom spilleren har kortet, false ellers.
 	 */
-	public boolean leggnedKort(ISpiller spiller, Kort kort) {
+	public boolean leggnedKort(ISpiller spiller, Kort kort) { //FERDIG
 
 		if (spiller.getHand().har(kort) ) {
 
-			bord.leggNedBunkeTil(kort); //Legger ned kortet
-			spiller.getHand().fjern(kort);
+			bord.leggNedBunkeTil(kort); //Legger kortet til til-bunken
+			spiller.getHand().fjern(kort); //Fjerner kortet fra hand
 
-			spiller.setAntallTrekk(0);
+			spiller.setAntallTrekk(0); //Nullstiller antall trekk
 			return true;
 		}
 		return false;
