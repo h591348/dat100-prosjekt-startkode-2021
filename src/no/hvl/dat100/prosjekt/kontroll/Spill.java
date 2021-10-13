@@ -2,6 +2,7 @@ package no.hvl.dat100.prosjekt.kontroll;
 
 import java.util.ArrayList;
 
+import no.hvl.dat100.prosjekt.kontroll.spill.HandlingsType;
 import no.hvl.dat100.prosjekt.modell.KortSamling;
 import no.hvl.dat100.prosjekt.TODO;
 import no.hvl.dat100.prosjekt.kontroll.dommer.Regler;
@@ -82,7 +83,7 @@ public class Spill {
 		Spill spill = new Spill();
 		KortUtils.stokk(bord.getBunkeFra());
 		delutKort();
-		System.out.println();
+		System.out.println(); //Debugging
 	}
 
 	/**
@@ -91,10 +92,14 @@ public class Spill {
 	 */
 	private void delutKort() { //TODO TEST
 
+		//Deler ut 3 kort til hver spiller
 		for (int i = 0; i < ANTALL_KORT_START; i++) {
+
+			//Henter ett kort fra fra-bunken og gir til spiller nord
 			Kort n = bord.getBunkeFra().taSiste();
 			nord.leggTilKort(n);
 
+			//Henter ett kort fra fra-bunken og gir til spiller syd
 			Kort s = bord.getBunkeFra().taSiste();
 			syd.leggTilKort(s);
 		}
@@ -128,12 +133,9 @@ public class Spill {
 	 * @return handlingen som blir utført.
 	 */
 	public Handling nesteHandling(ISpiller spiller) {
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
 
-		// TODO - END
+		//TODO
+		throw new UnsupportedOperationException(TODO.method());
 		
 	}
 
@@ -150,12 +152,16 @@ public class Spill {
 	 * @return true dersom spilleren har kortet, false ellers.
 	 */
 	public boolean leggnedKort(ISpiller spiller, Kort kort) {
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
 
-		// TODO - END
+		if (spiller.getHand().har(kort) ) {
+
+			bord.leggNedBunkeTil(kort); //Legger ned kortet
+			spiller.getHand().fjern(kort);
+
+			spiller.setAntallTrekk(0);
+			return true;
+		}
+		return false;
 	}
 
 	/**
