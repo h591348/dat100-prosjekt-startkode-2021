@@ -31,8 +31,9 @@ public abstract class Spiller implements ISpiller {
 	 * Standard konstruktør som oppretter en Spiller med en hånd uten kort,
 	 * antalltrekk som 0 og setter spiller til Spillere.INGEN.
 	 */
-	public Spiller() {
+	public Spiller() { //FERDIG
 
+		this.hand = new KortSamling();
 		this.spiller = Spillere.INGEN;
 		this.antalltrekk = 0;
 
@@ -46,11 +47,11 @@ public abstract class Spiller implements ISpiller {
 	 *            hvilken spiller det er.
 	 */
 	public Spiller(Spillere spiller) {
-		
-		// TODO - START
 
-		throw new UnsupportedOperationException(TODO.constructor("Spiller"));
-		// TODO - END
+		this.hand = new KortSamling();
+		this.spiller = spiller;
+		this.antalltrekk = 0;
+
 	}
 
 	public int getAntallKort() { //FERDIG TODO TEST
