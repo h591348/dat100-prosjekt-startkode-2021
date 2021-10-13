@@ -78,22 +78,28 @@ public class KortSamling {
 	 */
 	public void leggTilAlle() { //Martin (TODO legg til kortstokken slik at den er full (12 kort)
 		//TODO Husk: bruk Regler.MAKS_KORT_FARGE for å få antall kort per farge
+		Kort[] tab = new Kort[samling.length];
 
-		for (int f = 0; f < Regler.MAKS_KORT_FARGE+1; f++) {
-			for (int v = 0; v < Regler.MAKS_KORT_FARGE; v++) {
-				//Kort k = new Kort(Kortfarge.f, v);
+		for (int i = 0; i <= Regler.MAKS_KORT_FARGE*4-1; i++) {
+
+			for (int j = 0; j < Regler.MAKS_KORT_FARGE; j++) {
+				tab[j] = new Kort(Kortfarge.Hjerter, i);
 			}
+			for (int j = Regler.MAKS_KORT_FARGE; j < Regler.MAKS_KORT_FARGE*2; j++) {
+				tab[j] = new Kort(Kortfarge.Ruter, i);
+			}
+			for (int j = Regler.MAKS_KORT_FARGE*2; j < Regler.MAKS_KORT_FARGE*3; j++) {
+				tab[j] = new Kort(Kortfarge.Klover, i);
+			}
+			for (int j = Regler.MAKS_KORT_FARGE*3; j < Regler.MAKS_KORT_FARGE*4-1; j++) {
+				tab[j] = new Kort(Kortfarge.Spar, i);
+			}
+
+			leggTil(tab[i]);
+
 		}
 
-		for (Kort k : samling) { //TODO test
-			System.out.println(k.getVerdi() + " " + k.getFarge());
-		}
 
-
-		for (int i = 0; i < samling.length; i++) {
-			//samling[i] = leggTil();
-			//KortUtils.stokk(samling[i]);
-		}
 
 	}
 
