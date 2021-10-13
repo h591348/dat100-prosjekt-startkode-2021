@@ -27,13 +27,13 @@ public class Spill {
 	public final static int ANTALL_KORT_START = Regler.ANTALL_KORT_START;
 	
 	public Spill() { //TODO TEST
-		
-		this.nord.getHand();
-		this.syd = getSyd();
-		this.bord = getBord();
 
-		
+		this.bord = new Bord();
+		//this.nord = nord.getHand();
+		//this.syd;
+
 	}
+
 	
 	/**
 	 * Gir referanse/peker til bord.

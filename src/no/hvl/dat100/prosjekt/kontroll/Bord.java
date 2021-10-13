@@ -121,7 +121,7 @@ public class Bord {
 	 */
 	public Kort seOversteBunkeTil() {  //FERDIG  Bruker metoden seSiste fra KortSamling.java
 		
-		return getBunkeTil().seSiste();
+		return bunkeTil.seSiste();
 	}
 	
 	/**
