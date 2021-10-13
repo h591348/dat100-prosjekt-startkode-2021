@@ -19,7 +19,7 @@ import no.hvl.dat100.prosjekt.modell.Kort;
 public abstract class Spiller implements ISpiller {
 
 	// hand for spilleren (samling)
-	private KortSamling hand; 
+	private KortSamling hand;
 	
 	// antall trekk spilleren har gjort fra fra-bunken
 	private int antalltrekk; 
@@ -46,7 +46,7 @@ public abstract class Spiller implements ISpiller {
 	 * @param spiller
 	 *            hvilken spiller det er.
 	 */
-	public Spiller(Spillere spiller) {
+	public Spiller(Spillere spiller) { //FERDIG
 
 		this.hand = new KortSamling();
 		this.spiller = spiller;
@@ -88,21 +88,15 @@ public abstract class Spiller implements ISpiller {
 		return false;
 	}
 
-	public void leggTilKort(Kort kort) {
+	public void leggTilKort(Kort kort) { //FERDIG
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		hand.leggTil(kort);
 		
 	}
 
 	public void fjernKort(Kort kort) {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		hand.leggTil(kort);
 		
 	}
 
