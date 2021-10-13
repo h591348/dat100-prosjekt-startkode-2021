@@ -26,12 +26,12 @@ public class Spill {
 	// antall kort som skal deles ut til hver spiller ved start
 	public final static int ANTALL_KORT_START = Regler.ANTALL_KORT_START;
 	
-	public Spill() {
+	public Spill() { //TODO TEST
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.constructor("Spill"));
-		// TODO - END
+		this.nord.getHand();
+		this.syd = getSyd()getMetod;
+		this.bord = getBord();
+
 		
 	}
 	
@@ -40,13 +40,9 @@ public class Spill {
 	 * 
 	 * @return referanse/peker bord objekt.
 	 */
-	public Bord getBord() {
+	public Bord getBord() { //FERDIG
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		return bord;
 		
 	}
 	
@@ -55,13 +51,9 @@ public class Spill {
 	 * 
 	 * @return referanse/peker til syd spiller.
 	 */
-	public ISpiller getSyd() {
+	public ISpiller getSyd() { //FERDIG
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		return syd;
 		
 	}
 
@@ -70,13 +62,9 @@ public class Spill {
 	 * 
 	 * @return referanse/peker til nord.
 	 */
-	public ISpiller getNord() {
+	public ISpiller getNord() { //FERDIG
 		
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		return nord;
 	}
 
 	/**
