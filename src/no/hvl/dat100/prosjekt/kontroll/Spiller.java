@@ -74,12 +74,9 @@ public abstract class Spiller implements ISpiller {
 		
 	}
 
-	public void setAntallTrekk(int t) {
+	public void setAntallTrekk(int t) { //FERDIG
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		this.antalltrekk = t;
 	}
 
 	public boolean erFerdig() {
