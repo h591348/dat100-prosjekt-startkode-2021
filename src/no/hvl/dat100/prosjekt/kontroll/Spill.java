@@ -80,9 +80,7 @@ public class Spill {
 	public void start() { //TODO fullfor
 		
 		Spill spill = new Spill();
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		KortUtils.stokk(bord.getBunkeFra());
 	}
 
 	/**
@@ -110,7 +108,7 @@ public class Spill {
 	public Kort trekkFraBunke(ISpiller spiller) {
 
 		// TODO - START
-			
+
 		throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - END
