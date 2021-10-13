@@ -56,7 +56,7 @@ public abstract class Spiller implements ISpiller {
 
 	public int getAntallKort() { //FERDIG
 		
-		return new KortSamling().getAntalKort();
+		return hand.getAntalKort();
 	}
 
 	public KortSamling getHand() { //FERDIG
