@@ -195,7 +195,18 @@ public class Spill {
 	 */
 	public Kort utforHandling(ISpiller spiller, Handling handling) {
 
-		// TODO - START
+		switch (handling.getType()) {
+			case TREKK -> {
+				trekkFraBunke(spiller);
+			}
+			case LEGGNED -> {
+				leggnedKort(spiller, spiller.getHand().taSiste() ); //Ikke ta siste
+			}
+			case FORBI -> {
+				forbiSpiller(spiller);
+			}
+
+		}
 		Kort kort = null;
 
 		// Hint: del opp i de tre mulige handlinger og vurder 
