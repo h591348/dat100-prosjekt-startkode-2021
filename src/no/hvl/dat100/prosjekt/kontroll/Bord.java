@@ -15,17 +15,15 @@ public class Bord {
 
 	private KortSamling bunkeFra;
 	private KortSamling bunkeTil;
-	
+
 	/**
 	 * Metoden oppretter to bunker, til- og fra-bunken
 	 * Alle kortene legges til fra-bunken. 
 	 */
 	public Bord() {
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.constructor("Bord"));
-		// TODO - END
+		this.bunkeFra = new KortSamling();
+		this.bunkeTil = new KortSamling();
+		bunkeFra.leggTilAlle();
 	}
 	
 	/**
