@@ -54,7 +54,7 @@ public abstract class Spiller implements ISpiller {
 
 	}
 
-	public int getAntallKort() { //FERDIG TODO TEST
+	public int getAntallKort() { //FERDIG
 		
 		return new KortSamling().getAntalKort();
 	}
@@ -91,23 +91,25 @@ public abstract class Spiller implements ISpiller {
 		
 	}
 
-	public void fjernKort(Kort kort) {
+	public void fjernKort(Kort kort) { //FERDIG
 		
 		hand.fjern(kort);
 		
 	}
 
-	public void fjernAlleKort() {
+	public void fjernAlleKort() { //FERDIG
 		
 		hand.fjernAlle();
 	}
 
-	public void trekker(Kort kort) {
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+	public void trekker(Kort kort) { //Trekker kort fra hand?
+
+		for (Kort k : hand.getSamling()) {
+			if (k == kort) {
+				
+				antalltrekk++;
+			}
+		}
 		
 	}
 }
