@@ -81,18 +81,24 @@ public class Spill {
 		
 		Spill spill = new Spill();
 		KortUtils.stokk(bord.getBunkeFra());
+		delutKort();
+		System.out.println();
 	}
 
 	/**
 	 * Deler ut kort til nord og syd.
 	 * 
 	 */
-	private void delutKort() {
+	private void delutKort() { //TODO TEST
 
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		for (int i = 0; i < ANTALL_KORT_START; i++) {
+			Kort n = bord.getBunkeFra().taSiste();
+			nord.leggTilKort(n);
+
+			Kort s = bord.getBunkeFra().taSiste();
+			syd.leggTilKort(s);
+		}
+
 	}
 
 	/**
