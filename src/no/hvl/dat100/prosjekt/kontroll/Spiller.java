@@ -32,11 +32,10 @@ public abstract class Spiller implements ISpiller {
 	 * antalltrekk som 0 og setter spiller til Spillere.INGEN.
 	 */
 	public Spiller() {
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.constructor("Spiller"));
-		// TODO - END
+
+		this.spiller = Spillere.INGEN;
+		this.antalltrekk = 0;
+
 	}
 
 	/**
@@ -54,22 +53,14 @@ public abstract class Spiller implements ISpiller {
 		// TODO - END
 	}
 
-	public int getAntallKort() {
+	public int getAntallKort() { //FERDIG TODO TEST
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		return new KortSamling().getAntalKort();
 	}
 
-	public KortSamling getHand() {
+	public KortSamling getHand() { //FERDIG
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		return hand;
 	}
 
 	public int getAntallTrekk() {
