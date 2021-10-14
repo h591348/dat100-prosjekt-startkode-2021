@@ -78,20 +78,20 @@ public class Spill {
 	 * Nord har type RandomSpiller (som er forhåndefinert). Syd vil være spiller
 	 * av en klasse laget av gruppen (implementeres i oppgave 3).
 	 */
-	public void start() { //TODO fullfor
-		
+	public void start() { //FERDIG
+
 		Spill spill = new Spill();
+
 		KortUtils.stokk(bord.getBunkeFra());
 		delutKort();
-
-		System.out.println(); //Debugging
+		getBord().vendOversteFraBunke();
 	}
 
 	/**
 	 * Deler ut kort til nord og syd.
 	 * 
 	 */
-	private void delutKort() { //TODO TEST
+	private void delutKort() { //FERDIG
 
 		//Deler ut 3 kort til hver spiller
 		for (int i = 0; i < ANTALL_KORT_START; i++) {
@@ -135,10 +135,9 @@ public class Spill {
 	 * 
 	 * @return handlingen som blir utført.
 	 */
-	public Handling nesteHandling(ISpiller spiller) {
+	public Handling nesteHandling(ISpiller spiller) { //FERDIG
 
-		//TODO
-		throw new UnsupportedOperationException(TODO.method());
+		return spiller.nesteHandling(getBord().seOversteBunkeTil() );
 		
 	}
 
@@ -178,7 +177,6 @@ public class Spill {
 	public void forbiSpiller(ISpiller spiller) { //FERDIG?
 		
 		spiller.setAntallTrekk(0); //Nullstiller antall trekk
-		//nesteHandling(spiller);
 
 	}
 
