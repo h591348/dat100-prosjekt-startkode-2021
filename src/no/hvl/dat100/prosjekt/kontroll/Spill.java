@@ -194,27 +194,31 @@ public class Spill {
 	 */
 	public Kort utforHandling(ISpiller spiller, Handling handling) { //TODO fullfør
 
-		switch (handling.getType()) {
+		Kort kort = null;
+
+		switch (handling.getType() ) {
 			case TREKK -> {
-				trekkFraBunke(spiller);
+				kort = trekkFraBunke(spiller);
 			}
 			case LEGGNED -> {
-				leggnedKort(spiller, spiller.getHand().taSiste() ); //Ikke ta siste
+				if (leggnedKort(spiller, spiller.getHand().taSiste() )) { //Hvis spiller har kort...
+					//TODO Ikke ta siste kortet
+					kort = null; //Kortet som spilleren legger ned
+				}
+
 			}
 			case FORBI -> {
 				forbiSpiller(spiller);
+				kort = null;
 			}
 
 		}
-		Kort kort = null;
 
 		// Hint: del opp i de tre mulige handlinger og vurder 
 		// om noen andre private metoder i klassen kan brukes
 		// til å implementere denne metoden
-				
-		throw new UnsupportedOperationException(TODO.method());
 
-		// TODO - END
+		return kort;
 	}
 
 }
