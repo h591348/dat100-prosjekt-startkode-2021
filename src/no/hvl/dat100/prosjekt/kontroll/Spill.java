@@ -83,6 +83,7 @@ public class Spill {
 		Spill spill = new Spill();
 		KortUtils.stokk(bord.getBunkeFra());
 		delutKort();
+
 		System.out.println(); //Debugging
 	}
 
@@ -116,7 +117,7 @@ public class Spill {
 	 * 
 	 * @return kortet som trekkes.
 	 */
-	public Kort trekkFraBunke(ISpiller spiller) {
+	public Kort trekkFraBunke(ISpiller spiller) { //FERDIG
 
 		bord.snuTilBunken(); //Metoden sjekker selv om bunken må snus eller ikke.
 		Kort overst = bord.taOversteFraBunke();
@@ -155,12 +156,13 @@ public class Spill {
 	 */
 	public boolean leggnedKort(ISpiller spiller, Kort kort) { //FERDIG
 
+		spiller.setAntallTrekk(0); //Nullstiller antall trekk
+
 		if (spiller.getHand().har(kort) ) {
 
 			bord.leggNedBunkeTil(kort); //Legger kortet til til-bunken
 			spiller.getHand().fjern(kort); //Fjerner kortet fra hand
 
-			spiller.setAntallTrekk(0); //Nullstiller antall trekk
 			return true;
 		}
 		return false;
@@ -173,13 +175,10 @@ public class Spill {
 	 * @param spiller
 	 *            spilleren som er i tur.
 	 */
-	public void forbiSpiller(ISpiller spiller) {
+	public void forbiSpiller(ISpiller spiller) { //FERDIG?
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-	
-		// TODO - END
+		spiller.setAntallTrekk(0); //Nullstiller antall trekk
+
 	}
 
 	/**
