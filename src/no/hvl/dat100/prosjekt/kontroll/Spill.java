@@ -137,9 +137,9 @@ public class Spill {
 	 */
 	public Handling nesteHandling(ISpiller spiller) {
 
-		//TODO
-		throw new UnsupportedOperationException(TODO.method());
-		
+		Handling handling = spiller.nesteHandling(getBord().getBunkeTil().seSiste());
+
+		return handling;
 	}
 
 	/**
