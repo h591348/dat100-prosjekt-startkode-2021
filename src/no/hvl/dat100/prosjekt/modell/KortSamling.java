@@ -112,10 +112,9 @@ public class KortSamling {
 		if (samling == null || antall==0) {
 			return null;
 		}
-			else {
-
+		else {
 			return samling[antall-1];
-			}
+		}
 
 
 
@@ -136,7 +135,6 @@ public class KortSamling {
 		else{
 			sisteKort = samling[antall-1];
 			fjern(samling[antall-1]);
-
 		}
 		return sisteKort;
 
@@ -184,7 +182,7 @@ public class KortSamling {
 
 				samling[antall-1] = null;
 
-				antall --;
+				antall--;
 
 				return true;
 			}
@@ -206,7 +204,7 @@ public class KortSamling {
 		for (int i = 0; i < tabell.length; i++) {
 			tabell[i] = samling[i];
 		}
-	return tabell;
+		return tabell;
 	}
 	
 }
