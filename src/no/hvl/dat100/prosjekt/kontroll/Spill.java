@@ -178,6 +178,7 @@ public class Spill {
 	public void forbiSpiller(ISpiller spiller) { //FERDIG?
 		
 		spiller.setAntallTrekk(0); //Nullstiller antall trekk
+		//nesteHandling(spiller);
 
 	}
 
@@ -192,24 +193,29 @@ public class Spill {
 	 * 
 	 * @return kort som trekkes, kort som spilles eller null ved forbi.
 	 */
-	public Kort utforHandling(ISpiller spiller, Handling handling) { //TODO fullfør
-
-		Kort kort = null;
+	public Kort utforHandling(ISpiller spiller, Handling handling) { //FERDIG
 
 		switch (handling.getType() ) {
+
+			//Returnerer kort til spilleren
 			case TREKK -> {
-				kort = trekkFraBunke(spiller);
+				return trekkFraBunke(spiller);
 			}
 			case LEGGNED -> {
-				if (leggnedKort(spiller, spiller.getHand().taSiste() )) { //Hvis spiller har kort...
-					//TODO Ikke ta siste kortet
-					kort = null; //Kortet som spilleren legger ned
-				}
 
+				Kort[] tab = spiller.getHand().getSamling();
+
+				//Sjekker om spilleren har kortet fra Handling og hvis spilleren har det, legger det ned til til-bunken
+				for (int i = 0; i < spiller.getAntallKort(); i++) {
+					if (handling.getKort() == tab[i]) {
+
+						leggnedKort(spiller, tab[i]);
+						return tab[i];
+					}
+				}
 			}
-			case FORBI -> {
+			default -> {
 				forbiSpiller(spiller);
-				kort = null;
 			}
 
 		}
@@ -218,7 +224,7 @@ public class Spill {
 		// om noen andre private metoder i klassen kan brukes
 		// til å implementere denne metoden
 
-		return kort;
+		return null;
 	}
 
 }
