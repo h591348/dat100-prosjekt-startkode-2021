@@ -76,9 +76,9 @@ public class KortSamling {
 	 * Legger alle korta (hele kortstokken) til samlinga. Korta vil være sortert
 	 * slik at de normalt må stokkes før bruk.
 	 */
-	public void leggTilAlle() { //FERDIG
+	public void leggTilAlle() { //FERDIG | Oppretter 12 kort objekt i stigende rekkefølge
 
-			for (Kortfarge f : Kortfarge.values() ) { //Går igjennom hver kortfarge, og bytter hver tredje
+			for (Kortfarge f : Kortfarge.values() ) { //Går igjennom hver kortfarge, og bytter kortfarge hver tredje
 				for (int i = 1; i <= Regler.MAKS_KORT_FARGE; i++) {
 
 					leggTil(new Kort(f, i)); //Legger til hvert kort i samlingen
@@ -91,15 +91,13 @@ public class KortSamling {
 	 * Fjerner alle korta fra samlinga slik at den blir tom.
 	 */
 	public void fjernAlle() {
-		
-		for (int i = 0; i < samling.length; i++){
+
+		for (int i = 0; i < antall; i++){
 
 			samling[i] = null;
 
-			if (antall > 0) {
-				antall--;
-			}
 		}
+		antall = 0;
 	}
 	
 	/**
@@ -115,8 +113,6 @@ public class KortSamling {
 		else {
 			return samling[antall-1];
 		}
-
-
 
 	}
 
