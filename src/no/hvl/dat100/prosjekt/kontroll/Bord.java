@@ -124,24 +124,24 @@ public class Bord {
 	
 	/**
 	 * Når fra-bunken blir tom, tar man vare på kortet pÂ toppen av til-bunken.
-	 * Deretter legges alle den andre kortene i til-bunken over i fra-bunken.
+	 * Deretter legges alle de andre kortene i til-bunken over i fra-bunken.
 	 * Denne stokkes og kortet som man har tatt vare pÂ legges tilbake i
 	 * til-bunken. Det vil nå være det eneste kortet i til-bunken.
 	 */
-	public void snuTilBunken() { //TODO fix feil svar
-		/*if (bunkefraTom()) {
-			Kort oversteKort = bunkeTil.taSiste();
-			bunkeFra = bunkeTil;
-			bunkeTil.fjernAlle();
-			bunkeTil.leggTil(oversteKort);
-		}*/
+	public void snuTilBunken() { //TODO Test feil på linje 152! Skjønner ikke hva som er galt :/
 
-		if (bunkefraTom()){  //implementer start i Spill.java
-			Kort oversteKort = bunkeTil.seSiste();
-			bunkeFra.leggTilAlle(); //Feilen ligger her, det legges til alle (12) kort i stedet for alle fra til-bunken.
-			bunkeFra.fjern(oversteKort);
-			bunkeTil.fjernAlle();
+		if (bunkefraTom() ) {  //implementer start i Spill.java
+			Kort oversteKort = bunkeTil.seSiste(); //Lagrer øverste kort i til-bunken
+
+			//Kopierer verdiene fra til-bunken til fra-bunken
+			for (int i = 0; i < antallBunkeTil()-1; i++) {
+				bunkeFra.leggTil(bunkeTil.getSamling()[i]);
+			}
+			bunkeTil.fjernAlle(); //Fjerner alle kortene i bunkeTil siden de er kopiert til bunkeFra
+
+			//Legger til det øverste kortet til til-bunken
 			bunkeTil.leggTil(oversteKort);
+
 			KortUtils.stokk(bunkeFra);
 		}
 	}
