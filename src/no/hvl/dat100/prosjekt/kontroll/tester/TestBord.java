@@ -149,7 +149,7 @@ class TestBord {
 
 		assertEquals(1, bunkeTil.getAntalKort());
 		assertEquals(overst, bunkeTil.seSiste());
-		assertEquals(bunkefraantall, bunkeFra.getAntalKort());
+		assertEquals(bunkefraantall, bunkeFra.getAntalKort()); //TODO Får feil her, expected 6, actual 5?
 
 	}
 	
