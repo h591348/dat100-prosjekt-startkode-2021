@@ -40,72 +40,60 @@ public class SydSpiller extends Spiller {
 
 		Kort[] hand = getHand().getSamling();
 
-		KortSamling sammeFarge;
 		KortSamling sammeVerdi = new KortSamling();
 		KortSamling kort8 = new KortSamling();
 
-		KortSamling hjerter = new KortSamling();
-		KortSamling spar = new KortSamling();
-		KortSamling klover = new KortSamling();
-		KortSamling ruter = new KortSamling();
+		KortSamling[] farger = {new KortSamling(), new KortSamling(), new KortSamling(), new KortSamling()};
 
 		//Går igjennom kortene på hånden og kopierer de i ulike tabeller
 		for (int i = 0; i < getAntallKort(); i++) {
 
-			if (Regler.kanLeggeNed(hand[i], topp)) { //Kun de kortene som kan legges ned på til-bunken
+			if (Regler.kanLeggeNed(hand[i], topp) ) { //Kun de kortene som kan legges ned på til-bunken
 
 				//Lagrer 8-erne
 				if (hand[i].getVerdi() == 8) {
-					kort8.leggTil(hand[i]);
+					kort8.leggTil(hand[i] );
 				}
 				//Lagrer de som har samme verdi men ikke samme farge eller 8-ere
 				else if (hand[i].sammeVerdi(topp) && !hand[i].sammeFarge(topp) ) {
-					sammeVerdi.leggTil(hand[i]);
+					sammeVerdi.leggTil(hand[i] );
 				}
 
 				//Lagrer kort etter farge men ikke 8-ere
 				if (hand[i].getVerdi() != 8) {
 
-					if (hand[i].getFarge() == Kortfarge.Hjerter) {
+					for (int j = 0; j < Kortfarge.values().length; j++) { //Sjekker for hver av kortFargene
 
-						hjerter.leggTil(hand[i]);
+						if (hand[i].getFarge() == Kortfarge.values()[j] ) {
 
-					} else if (hand[i].getFarge() == Kortfarge.Spar) {
+							farger[j].leggTil(hand[i] );
 
-						spar.leggTil(hand[i]);
-
-					} else if (hand[i].getFarge() == Kortfarge.Klover) {
-
-						klover.leggTil(hand[i]);
-
-					} else if (hand[i].getFarge() == Kortfarge.Ruter) {
-
-						ruter.leggTil(hand[i]);
-
+						}
 					}
 				}
 			}
 		}
 
 		Kort kort = null;
+		KortSamling sammeFarge;
 
 		//Finner beste mulige kort
 		switch (topp.getFarge() ) {
 			case Hjerter -> {
-				sammeFarge = hjerter;
-				kort = finnKort(sammeFarge, spar, ruter, klover, kort8, topp);
-			}
-			case Spar -> {
-				sammeFarge = spar;
-				kort = finnKort(sammeFarge, hjerter, ruter, klover, kort8, topp);
+				sammeFarge = farger[0];
+				kort = finnKort(sammeFarge, farger[1], farger[2], farger[3], kort8, topp);
 			}
 			case Ruter -> {
-				sammeFarge = ruter;
-				kort = finnKort(sammeFarge, spar, hjerter, klover, kort8, topp);
+				sammeFarge = farger[1];
+				kort = finnKort(sammeFarge, farger[0], farger[2], farger[3], kort8, topp);
 			}
 			case Klover -> {
-				sammeFarge = klover;
-				kort = finnKort(sammeFarge, spar, ruter, hjerter, kort8, topp);
+				sammeFarge = farger[2];
+				kort = finnKort(sammeFarge, farger[0], farger[1], farger[3], kort8, topp);
+			}
+			case Spar -> {
+				sammeFarge = farger[3];
+				kort = finnKort(sammeFarge, farger[0], farger[1], farger[2], kort8, topp);
 			}
 		}
 
