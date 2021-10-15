@@ -1,14 +1,12 @@
 package no.hvl.dat100.prosjekt.kontroll;
 
-import no.hvl.dat100.prosjekt.TODO;
 import no.hvl.dat100.prosjekt.kontroll.dommer.Regler;
 import no.hvl.dat100.prosjekt.kontroll.spill.Handling;
 import no.hvl.dat100.prosjekt.kontroll.spill.HandlingsType;
 import no.hvl.dat100.prosjekt.kontroll.spill.Spillere;
 import no.hvl.dat100.prosjekt.modell.Kort;
 import no.hvl.dat100.prosjekt.modell.KortSamling;
-
-import java.util.Random;
+import no.hvl.dat100.prosjekt.modell.Kortfarge;
 
 /**
  * Klasse som for å representere en vriåtter syd-spiller. Strategien er å lete
@@ -40,48 +38,136 @@ public class SydSpiller extends Spiller {
 	@Override
 	public Handling nesteHandling(Kort topp) {
 
-		// ArrayLister for de kort vi har og kan spille
-		Kort[] hand = getHand().getAllekort();
-		KortSamling lovlige = new KortSamling();
-		KortSamling attere = new KortSamling();
+		Handling nesteH = null;
+		Kort[] hand = getHand().getSamling();
 
-		// Gå igjennom kort å finn ut hvilke som kan spilles
-		for (Kort k : hand) {
-			if (Regler.kanLeggeNed(k, topp)) {
-				if (Regler.atter(k)) {
-					attere.leggTil(k);
-				} else {
-					lovlige.leggTil(k);
+		KortSamling sammeFarge;
+		KortSamling sammeVerdi = new KortSamling();
+		KortSamling kort8 = new KortSamling();
+
+		KortSamling hjerter = new KortSamling();
+		KortSamling spar = new KortSamling();
+		KortSamling klover = new KortSamling();
+		KortSamling ruter = new KortSamling();
+
+
+		for (int i = 0; i < getAntallKort(); i++) { //Lagrer kort i ulike tabeller
+
+			if (Regler.kanLeggeNed(hand[i], topp)) {
+
+				if (hand[i].getVerdi() == 8) {
+					kort8.leggTil(hand[i]);
+				}
+				else if (hand[i].sammeVerdi(topp) && !hand[i].sammeFarge(topp) ) {
+					sammeVerdi.leggTil(hand[i]);
+				}
+
+				if (hand[i].getVerdi() != 8) { //Lagrer kort for hver type i egen tabell med unntak av 8ere
+
+					if (hand[i].getFarge() == Kortfarge.Hjerter) {
+
+						hjerter.leggTil(hand[i]);
+
+					} else if (hand[i].getFarge() == Kortfarge.Spar) {
+
+						spar.leggTil(hand[i]);
+
+					} else if (hand[i].getFarge() == Kortfarge.Klover) {
+
+						klover.leggTil(hand[i]);
+
+					} else if (hand[i].getFarge() == Kortfarge.Ruter) {
+
+						ruter.leggTil(hand[i]);
+
+					}
 				}
 			}
 		}
 
-		Kort spill = null;
-		Kort[] spillFra = null;
+		Kort kort = null;
 
-		if (!lovlige.erTom()) {
-			spillFra = lovlige.getAllekort();
-		} else if (!attere.erTom())  {
-			spillFra = attere.getAllekort();
+		//Finner beste mulige kort
+		switch (topp.getFarge() ) {
+			case Hjerter -> {
+				sammeFarge = hjerter;
+				kort = findKort(sammeFarge, spar, ruter, klover, kort8, topp);
+			}
+			case Spar -> {
+				sammeFarge = spar;
+				kort = findKort(sammeFarge, hjerter, ruter, klover, kort8, topp);
+			}
+			case Ruter -> {
+				sammeFarge = ruter;
+				kort = findKort(sammeFarge, spar, hjerter, klover, kort8, topp);
+			}
+			case Klover -> {
+				sammeFarge = klover;
+				kort = findKort(sammeFarge, spar, ruter, hjerter, kort8, topp);
+			}
 		}
 
-		Handling handling = null;
-
-		if (spillFra != null) {
-
-			Random r = new Random();
-			int p = r.nextInt(spillFra.length);
-			spill = spillFra[p];
-			handling = new Handling(HandlingsType.LEGGNED, spill);
-			// setAntallTrekk(0);
-
-		} else if (getAntallTrekk() < Regler.maksTrekk()) {
-			handling = new Handling(HandlingsType.TREKK, null);
-		} else {
-			handling = new Handling(HandlingsType.FORBI, null);
-			// setAntallTrekk(0);
+		if (kort == null && getAntallTrekk() < Regler.maksTrekk()) {
+			return new Handling(HandlingsType.TREKK, null);
+		}
+		else if (kort == null && getAntallTrekk() == Regler.maksTrekk()) {
+			return new Handling(HandlingsType.FORBI, null);
+		}
+		else {
+			return new Handling(HandlingsType.LEGGNED, kort);
 		}
 
-		return handling;
+
+
 	}
+
+	private Kort findKort(KortSamling sammeFarge, KortSamling farge1, KortSamling farge2, KortSamling farge3, KortSamling kort8, Kort topp) {
+
+		int samme = sammeFarge.getAntalKort();
+
+		int max = Integer.max(samme, farge1.getAntalKort());
+		max = Integer.max(max, farge2.getAntalKort());
+		max = Integer.max(max, farge3.getAntalKort());
+
+		if (max != 0) {
+
+			if (max == samme) {
+
+				return sammeFarge.taSiste();
+
+			}
+			else if (max == farge1.getAntalKort()) {
+
+				for (Kort k : farge1.getSamling() ) {
+					if (k.sammeVerdi(topp) ) {
+						return k;
+					}
+				}
+			}
+			else if (max == farge2.getAntalKort()) {
+
+				for (Kort k : farge2.getSamling() ) {
+					if (k.sammeVerdi(topp) ) {
+						return k;
+					}
+				}
+			}
+			else if (max == farge3.getAntalKort()) {
+
+				for (Kort k : farge3.getSamling() ) {
+					if (k.sammeVerdi(topp) ) {
+						return k;
+					}
+				}
+			}
+		}
+		if (!kort8.erTom() ) {
+			for (Kort k : kort8.getSamling() ) {
+				return k;
+			}
+		}
+
+		return null;
+	}
+
 }

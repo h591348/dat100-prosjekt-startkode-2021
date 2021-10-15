@@ -11,6 +11,10 @@ import no.hvl.dat100.prosjekt.modell.Kort;
 
 public class Kontroll {
 
+	public static int runde = 1;
+	public static int nordVinner = 0;
+	public static int sydVinner = 0;
+
 	private Dommer dommer;
 	private Spill spill;
 
@@ -265,7 +269,12 @@ public class Kontroll {
 	public boolean harVinner() {
 
 		Spillere vinner = Regler.vinner(spill.getNord(), spill.getSyd());
-
+		if (spill.getNord().hvem() == vinner) {
+			nordVinner++;
+		}
+		else if (spill.getSyd().hvem() == vinner) {
+			sydVinner++;
+		}
 		return (vinner != Spillere.INGEN);
 	}
 
@@ -282,5 +291,6 @@ public class Kontroll {
 			}
 		}
 
+		System.out.println("Runde: " + runde + " Nord har vunnet: " + nordVinner + " Syd har vunnet: " + sydVinner); runde++;
 	}
 }
