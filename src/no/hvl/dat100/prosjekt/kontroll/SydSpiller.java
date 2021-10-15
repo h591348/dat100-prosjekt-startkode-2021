@@ -129,47 +129,37 @@ public class SydSpiller extends Spiller {
 	private Kort finnKort(KortSamling sammeFarge, KortSamling farge1, KortSamling farge2, KortSamling farge3, KortSamling kort8, Kort topp) {
 
 		int samme = sammeFarge.getAntalKort();
+		KortSamling[] bunke = {sammeFarge, farge1, farge2, farge3};
 
 		//Finner ut hvilken farge vi har mest av, ignorerer 8-ere
-		int max = Integer.max(samme, farge1.getAntalKort());
-		max = Integer.max(max, farge2.getAntalKort());
-		max = Integer.max(max, farge3.getAntalKort());
+		int max = samme;
+		for (KortSamling ks : bunke) {
+			max = Integer.max(max, ks.getAntalKort());
+		}
 
 		//Hvis max er 0 så må alle de 4 kortsamlingene være tomme, men vi kan ha en eller flere 8-ere
 		if (max != 0) {
 
-			if (max == samme) {
+			for (KortSamling ks : bunke) {
+				if (max == samme) {
 
-				return sammeFarge.taSiste();
+					return sammeFarge.taSiste();
 
-			}
-			else if (max == farge1.getAntalKort()) {
-
-				for (Kort k : farge1.getSamling() ) {
-					if (k.sammeVerdi(topp) ) { //TODO forenkle, egen metode?
-						return k;
-					}
 				}
-			}
-			else if (max == farge2.getAntalKort()) {
+				else if (max == ks.getAntalKort() ) {
 
-				for (Kort k : farge2.getSamling() ) {
-					if (k.sammeVerdi(topp) ) {
-						return k;
-					}
-				}
-			}
-			else if (max == farge3.getAntalKort()) {
+					for (Kort k : ks.getSamling() ) {
 
-				for (Kort k : farge3.getSamling() ) {
-					if (k.sammeVerdi(topp) ) {
-						return k;
+						if (k.sammeVerdi(topp) ) {
+							return k;
+						}
 					}
 				}
 			}
 		}
+
 		//Hvis vi har minst en 8-er så vil vi legge på den første
-		if (!kort8.erTom() ) { //TODO velge en 8-er som har ulik farge til topp-kortet
+		if (!kort8.erTom() ) {
 			for (Kort k : kort8.getSamling() ) {
 				return k;
 			}
@@ -177,5 +167,4 @@ public class SydSpiller extends Spiller {
 
 		return null;
 	}
-
 }
