@@ -76,10 +76,9 @@ public class SydSpiller extends Spiller {
 		//Finner beste mulige kort, hvis hjerter så er ordinal verdien 0, derfor må vi få 1, 2, og 3 inne i paramaterene til finnKort.
 		//	Slik at vi får med alle kortene vi kan bruke
 		int i = topp.getFarge().ordinal();
-		KortSamling sammeFarge = farger[i];
 
 		//Kaller finnKort metoden under, som velger ut ett kort som syd skal spille
-		Kort kort = finnKort(sammeFarge, farger[teller(i)], farger[teller(i+1)], farger[teller(i+2)], kort8, topp);
+		Kort kort = finnKort(farger[i], farger[teller(i)], farger[teller(i+1)], farger[teller(i+2)], kort8, topp);
 
 		if (kort == null && getAntallTrekk() < Regler.maksTrekk()) {
 			return new Handling(HandlingsType.TREKK, null);
