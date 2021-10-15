@@ -291,6 +291,7 @@ public class Kontroll {
 			}
 		}
 
-		System.out.println("Runde: " + runde + " Nord har vunnet: " + nordVinner + " Syd har vunnet: " + sydVinner); runde++;
+		System.out.printf("%10s %30s %30s %n", "Runde nummer: '" + runde + '\'', "Nord har vunnet: '" + nordVinner + "' runder.",
+												"Syd har vunnet: '" + sydVinner  + "' runder."); runde++;
 	}
 }

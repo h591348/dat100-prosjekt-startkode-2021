@@ -38,7 +38,6 @@ public class SydSpiller extends Spiller {
 	@Override
 	public Handling nesteHandling(Kort topp) {
 
-		Handling nesteH = null;
 		Kort[] hand = getHand().getSamling();
 
 		KortSamling sammeFarge;
@@ -50,19 +49,22 @@ public class SydSpiller extends Spiller {
 		KortSamling klover = new KortSamling();
 		KortSamling ruter = new KortSamling();
 
+		//Går igjennom kortene på hånden og kopierer de i ulike tabeller
+		for (int i = 0; i < getAntallKort(); i++) {
 
-		for (int i = 0; i < getAntallKort(); i++) { //Lagrer kort i ulike tabeller
+			if (Regler.kanLeggeNed(hand[i], topp)) { //Kun de kortene som kan legges ned på til-bunken
 
-			if (Regler.kanLeggeNed(hand[i], topp)) {
-
+				//Lagrer 8-erne
 				if (hand[i].getVerdi() == 8) {
 					kort8.leggTil(hand[i]);
 				}
+				//Lagrer de som har samme verdi men ikke samme farge eller 8-ere
 				else if (hand[i].sammeVerdi(topp) && !hand[i].sammeFarge(topp) ) {
 					sammeVerdi.leggTil(hand[i]);
 				}
 
-				if (hand[i].getVerdi() != 8) { //Lagrer kort for hver type i egen tabell med unntak av 8ere
+				//Lagrer kort etter farge men ikke 8-ere
+				if (hand[i].getVerdi() != 8) {
 
 					if (hand[i].getFarge() == Kortfarge.Hjerter) {
 
@@ -91,19 +93,19 @@ public class SydSpiller extends Spiller {
 		switch (topp.getFarge() ) {
 			case Hjerter -> {
 				sammeFarge = hjerter;
-				kort = findKort(sammeFarge, spar, ruter, klover, kort8, topp);
+				kort = finnKort(sammeFarge, spar, ruter, klover, kort8, topp);
 			}
 			case Spar -> {
 				sammeFarge = spar;
-				kort = findKort(sammeFarge, hjerter, ruter, klover, kort8, topp);
+				kort = finnKort(sammeFarge, hjerter, ruter, klover, kort8, topp);
 			}
 			case Ruter -> {
 				sammeFarge = ruter;
-				kort = findKort(sammeFarge, spar, hjerter, klover, kort8, topp);
+				kort = finnKort(sammeFarge, spar, hjerter, klover, kort8, topp);
 			}
 			case Klover -> {
 				sammeFarge = klover;
-				kort = findKort(sammeFarge, spar, ruter, hjerter, kort8, topp);
+				kort = finnKort(sammeFarge, spar, ruter, hjerter, kort8, topp);
 			}
 		}
 
@@ -116,19 +118,24 @@ public class SydSpiller extends Spiller {
 		else {
 			return new Handling(HandlingsType.LEGGNED, kort);
 		}
-
-
-
 	}
 
-	private Kort findKort(KortSamling sammeFarge, KortSamling farge1, KortSamling farge2, KortSamling farge3, KortSamling kort8, Kort topp) {
+	/*	Metoden prøver å finne det beste kortet å legge.
+	* 	Den vil prøve først å finne kort som har samme farge som 'topp'.
+	* 	Hvis vi ikke har minst ett kort med lik farge, eller vi har flere kort i en annen farge og ett av de har samme verdi som 'topp',
+	* 		så vil det kortet bli lagt.
+	* 	Hvis vi har minst en 8-er vil den bli lagt kun hvis vi ikke har noe annet å legge.
+	* */
+	private Kort finnKort(KortSamling sammeFarge, KortSamling farge1, KortSamling farge2, KortSamling farge3, KortSamling kort8, Kort topp) {
 
 		int samme = sammeFarge.getAntalKort();
 
+		//Finner ut hvilken farge vi har mest av, ignorerer 8-ere
 		int max = Integer.max(samme, farge1.getAntalKort());
 		max = Integer.max(max, farge2.getAntalKort());
 		max = Integer.max(max, farge3.getAntalKort());
 
+		//Hvis max er 0 så må alle de 4 kortsamlingene være tomme, men vi kan ha en eller flere 8-ere
 		if (max != 0) {
 
 			if (max == samme) {
@@ -139,7 +146,7 @@ public class SydSpiller extends Spiller {
 			else if (max == farge1.getAntalKort()) {
 
 				for (Kort k : farge1.getSamling() ) {
-					if (k.sammeVerdi(topp) ) {
+					if (k.sammeVerdi(topp) ) { //TODO forenkle, egen metode?
 						return k;
 					}
 				}
@@ -161,7 +168,8 @@ public class SydSpiller extends Spiller {
 				}
 			}
 		}
-		if (!kort8.erTom() ) {
+		//Hvis vi har minst en 8-er så vil vi legge på den første
+		if (!kort8.erTom() ) { //TODO velge en 8-er som har ulik farge til topp-kortet
 			for (Kort k : kort8.getSamling() ) {
 				return k;
 			}
