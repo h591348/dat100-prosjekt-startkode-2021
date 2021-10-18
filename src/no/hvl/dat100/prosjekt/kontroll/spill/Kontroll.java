@@ -2,6 +2,7 @@ package no.hvl.dat100.prosjekt.kontroll.spill;
 
 import java.util.ArrayList;
 
+import com.sun.tools.javac.Main;
 import no.hvl.dat100.prosjekt.kontroll.ISpiller;
 import no.hvl.dat100.prosjekt.kontroll.Spill;
 import no.hvl.dat100.prosjekt.kontroll.dommer.Dommer;
@@ -11,9 +12,9 @@ import no.hvl.dat100.prosjekt.modell.Kort;
 
 public class Kontroll {
 
-	public static int runde = 1;
-	public static int nordVinner = 0;
-	public static int sydVinner = 0;
+	private static int runde = 0;
+	private static int nordVinner = 0;
+	private static int sydVinner = 0;
 
 	private Dommer dommer;
 	private Spill spill;
@@ -280,18 +281,21 @@ public class Kontroll {
 
 	public void spillAuto() {
 
-		while (!harVinner()) {
+		for (int i = 0; i < 500; i++) {
+			while (!harVinner()) {
 
-			ISpiller spiller = turSpiller();
+				ISpiller spiller = turSpiller();
 
-			if (spiller != null) {
-				spillSpiller(spiller);
-			} else {
-				System.out.println("Feil i spillAuto - ingen spiller aktiv");
+				if (spiller != null) {
+					spillSpiller(spiller);
+				} else {
+					System.out.println("Feil i spillAuto - ingen spiller aktiv");
+				}
 			}
+			runde++;
+			startSpill();
 		}
-
 		System.out.printf("%10s %30s %30s %n", "Runde nummer: '" + runde + '\'', "Nord har vunnet: '" + nordVinner + "' runder.",
-												"Syd har vunnet: '" + sydVinner  + "' runder."); runde++;
+				"Syd har vunnet: '" + sydVinner  + "' runder.");
 	}
 }

@@ -32,8 +32,8 @@ public abstract class Spiller implements ISpiller {
 	public Spiller() { //FERDIG
 
 		this.spiller = Spillere.INGEN;
-		this.antalltrekk = 0;
 		this.hand = new KortSamling();
+		this.antalltrekk = 0;
 	}
 
 	/**
@@ -45,8 +45,8 @@ public abstract class Spiller implements ISpiller {
 	 */
 	public Spiller(Spillere spiller) { //FERDIG
 
-		this.hand = new KortSamling();
 		this.spiller = spiller;
+		this.hand = new KortSamling();
 		this.antalltrekk = 0;
 
 	}
@@ -69,7 +69,6 @@ public abstract class Spiller implements ISpiller {
 	public Spillere hvem() { //FERDIG
 
 		return spiller;
-		
 	}
 
 	public void setAntallTrekk(int t) { //FERDIG

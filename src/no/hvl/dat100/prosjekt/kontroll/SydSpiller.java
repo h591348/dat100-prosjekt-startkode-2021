@@ -1,8 +1,10 @@
 package no.hvl.dat100.prosjekt.kontroll;
 
+import no.hvl.dat100.prosjekt.kontroll.dommer.Dommer;
 import no.hvl.dat100.prosjekt.kontroll.dommer.Regler;
 import no.hvl.dat100.prosjekt.kontroll.spill.Handling;
 import no.hvl.dat100.prosjekt.kontroll.spill.HandlingsType;
+import no.hvl.dat100.prosjekt.kontroll.spill.Kontroll;
 import no.hvl.dat100.prosjekt.kontroll.spill.Spillere;
 import no.hvl.dat100.prosjekt.modell.Kort;
 import no.hvl.dat100.prosjekt.modell.KortSamling;
@@ -39,8 +41,6 @@ public class SydSpiller extends Spiller {
 	public Handling nesteHandling(Kort topp) { //FERDIG
 
 		Kort[] hand = getHand().getSamling();
-
-		KortSamling sammeVerdi = new KortSamling();
 		KortSamling kort8 = new KortSamling();
 
 		KortSamling[] farger = {new KortSamling(), new KortSamling(), new KortSamling(), new KortSamling()};
@@ -54,13 +54,8 @@ public class SydSpiller extends Spiller {
 				if (hand[i].getVerdi() == 8) {
 					kort8.leggTil(hand[i] );
 				}
-				//Lagrer de som har samme verdi men ikke samme farge eller 8-ere
-				else if (hand[i].sammeVerdi(topp) && !hand[i].sammeFarge(topp) ) {
-					sammeVerdi.leggTil(hand[i] );
-				} //Ikke i bruk!
-
 				//Lagrer kort etter farge men ikke 8-ere
-				if (hand[i].getVerdi() != 8) {
+				else if (hand[i].getVerdi() != 8) {
 
 					for (int j = 0; j < Kortfarge.values().length; j++) { //Sjekker for hver av kortFargene
 
@@ -80,10 +75,10 @@ public class SydSpiller extends Spiller {
 		//Kaller finnKort metoden under, som velger ut ett kort som syd skal spille
 		Kort kort = finnKort(farger[i], farger[teller(i)], farger[teller(i+1)], farger[teller(i+2)], kort8, topp);
 
-		if (kort == null && getAntallTrekk() < Regler.maksTrekk()) {
+		if (kort == null && getAntallTrekk() < Regler.maksTrekk() ) {
 			return new Handling(HandlingsType.TREKK, null);
 		}
-		else if (kort == null && getAntallTrekk() == Regler.maksTrekk()) {
+		else if (kort == null && getAntallTrekk() == Regler.maksTrekk() ) {
 			return new Handling(HandlingsType.FORBI, null);
 		}
 		else {
@@ -109,15 +104,15 @@ public class SydSpiller extends Spiller {
 	* 		så vil det kortet bli lagt.
 	* 	Hvis vi har minst en 8-er vil den bli lagt kun hvis vi ikke har noe annet å legge.
 	*/
-	private static Kort finnKort(KortSamling sammeFarge, KortSamling farge1, KortSamling farge2, KortSamling farge3, KortSamling kort8, Kort topp) {
+	private Kort finnKort(KortSamling sammeFarge, KortSamling farge1, KortSamling farge2, KortSamling farge3, KortSamling kort8, Kort topp) {
 
 		int samme = sammeFarge.getAntalKort();
 		KortSamling[] bunke = {sammeFarge, farge1, farge2, farge3};
 
 		//Finner ut hvilken farge vi har mest av, ignorerer 8-ere
-		int max = samme;
+		int max = 0;
 		for (KortSamling ks : bunke) {
-			max = Integer.max(max, ks.getAntalKort());
+			max = Integer.max(max, ks.getAntalKort() );
 		}
 
 		//Hvis max er 0 så må alle de 4 kortsamlingene være tomme, men vi kan ha en eller flere 8-ere
@@ -126,8 +121,18 @@ public class SydSpiller extends Spiller {
 			for (KortSamling ks : bunke) {
 				if (max == samme) {
 
-					return sammeFarge.taSiste();
+					//Sjekker om vi har flere av en verdi på hånden
+					for (int i = 1; i < bunke.length; i++) { //Går igjennom hver tabell
+						for (int k = 0; k < bunke[0].getAntalKort(); k++) { //Endrer k til sammeverdi bunken
+							for (int j = 0; j < bunke[i].getAntalKort(); j++) { //Endrer j til de andre bunkene
 
+								if (bunke[0].getSamling()[k].sammeVerdi(bunke[i].getSamling()[j])) {
+									return bunke[0].getSamling()[k];
+								}
+							}
+						}
+					}
+					return sammeFarge.taSiste();
 				}
 				else if (max == ks.getAntalKort() ) { //Sjekker hver tabell, hvilken vi har mest kort i
 
