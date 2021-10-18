@@ -36,7 +36,7 @@ public class SydSpiller extends Spiller {
 	 *            kort som ligg øverst på til-bunken.
 	 */
 	@Override
-	public Handling nesteHandling(Kort topp) {
+	public Handling nesteHandling(Kort topp) { //FERDIG
 
 		Kort[] hand = getHand().getSamling();
 
@@ -55,9 +55,9 @@ public class SydSpiller extends Spiller {
 					kort8.leggTil(hand[i] );
 				}
 				//Lagrer de som har samme verdi men ikke samme farge eller 8-ere
-//				else if (hand[i].sammeVerdi(topp) && !hand[i].sammeFarge(topp) ) {
-//					sammeVerdi.leggTil(hand[i] );
-//				} Ikke i bruk!
+				else if (hand[i].sammeVerdi(topp) && !hand[i].sammeFarge(topp) ) {
+					sammeVerdi.leggTil(hand[i] );
+				} //Ikke i bruk!
 
 				//Lagrer kort etter farge men ikke 8-ere
 				if (hand[i].getVerdi() != 8) {
@@ -91,7 +91,7 @@ public class SydSpiller extends Spiller {
 		}
 	}
 
-	//Passer på at vi kun får verdier fra 0 til 1
+	//Passer på at vi kun får verdier fra 0 til 3
 	private static int teller(int tall) {
 
 		switch (tall) {
@@ -147,7 +147,6 @@ public class SydSpiller extends Spiller {
 				return k;
 			}
 		}
-
 		return null;
 	}
 }

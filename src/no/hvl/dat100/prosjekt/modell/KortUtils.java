@@ -46,7 +46,7 @@ public class KortUtils {
 	 * @param samling
 	 * 			samling av kort som skal stokkes. 
 	 */
-	public static void stokk(KortSamling samling) { //(FERDIG)
+	public static void stokk(KortSamling samling) { //FERDIG
 
 		if (samling.getAntalKort() <= 1) {
 			return;

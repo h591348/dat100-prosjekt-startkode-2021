@@ -1,16 +1,10 @@
 package no.hvl.dat100.prosjekt.kontroll;
 
-import java.util.ArrayList;
-
-import no.hvl.dat100.prosjekt.kontroll.spill.HandlingsType;
-import no.hvl.dat100.prosjekt.modell.KortSamling;
-import no.hvl.dat100.prosjekt.TODO;
 import no.hvl.dat100.prosjekt.kontroll.dommer.Regler;
 import no.hvl.dat100.prosjekt.kontroll.spill.Handling;
 import no.hvl.dat100.prosjekt.kontroll.spill.Spillere;
 import no.hvl.dat100.prosjekt.modell.Kort;
 import no.hvl.dat100.prosjekt.modell.KortUtils;
-import no.hvl.dat100.prosjekt.modell.Kortfarge;
 
 /**
  * Klassen har objektvariaber som er referanser til de spillerne, nord og syd
@@ -80,9 +74,9 @@ public class Spill {
 	 */
 	public void start() { //FERDIG
 
-		Spill spill = new Spill();
+		Spill spill = new Spill(); //Lager nytt bord med 2 spillere
 
-		KortUtils.stokk(bord.getBunkeFra());
+		KortUtils.stokk(bord.getBunkeFra() );
 		delutKort();
 		getBord().vendOversteFraBunke();
 	}
@@ -104,7 +98,6 @@ public class Spill {
 			Kort s = bord.getBunkeFra().taSiste();
 			syd.leggTilKort(s);
 		}
-
 	}
 
 	/**
@@ -218,11 +211,6 @@ public class Spill {
 
 		}
 
-		// Hint: del opp i de tre mulige handlinger og vurder 
-		// om noen andre private metoder i klassen kan brukes
-		// til å implementere denne metoden
-
 		return null;
 	}
-
 }

@@ -2,7 +2,6 @@ package no.hvl.dat100.prosjekt.kontroll;
 
 import no.hvl.dat100.prosjekt.modell.KortSamling;
 import no.hvl.dat100.prosjekt.modell.KortUtils;
-import no.hvl.dat100.prosjekt.TODO;
 import no.hvl.dat100.prosjekt.modell.Kort;
 
 /**
@@ -20,7 +19,7 @@ public class Bord {
 	 * Metoden oppretter to bunker, til- og fra-bunken
 	 * Alle kortene legges til fra-bunken. 
 	 */
-	public Bord() {
+	public Bord() { //FERDIG
 		this.bunkeFra = new KortSamling();
 		this.bunkeTil = new KortSamling();
 		bunkeFra.leggTilAlle();
@@ -128,7 +127,7 @@ public class Bord {
 	 * Denne stokkes og kortet som man har tatt vare pÂ legges tilbake i
 	 * til-bunken. Det vil nå være det eneste kortet i til-bunken.
 	 */
-	public void snuTilBunken() { //TODO Test feil på linje 152! Skjønner ikke hva som er galt :/
+	public void snuTilBunken() { //FERDIG
 
 		if (bunkefraTom() ) {  //implementer start i Spill.java
 			Kort oversteKort = bunkeTil.seSiste(); //Lagrer øverste kort i til-bunken

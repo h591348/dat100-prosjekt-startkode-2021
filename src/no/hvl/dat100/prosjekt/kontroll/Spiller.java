@@ -1,8 +1,6 @@
 package no.hvl.dat100.prosjekt.kontroll;
 
 import no.hvl.dat100.prosjekt.modell.KortSamling;
-import no.hvl.dat100.prosjekt.modell.KortUtils;
-import no.hvl.dat100.prosjekt.TODO;
 import no.hvl.dat100.prosjekt.kontroll.spill.Spillere;
 import no.hvl.dat100.prosjekt.modell.Kort;
 
@@ -32,7 +30,6 @@ public abstract class Spiller implements ISpiller {
 	 * antalltrekk som 0 og setter spiller til Spillere.INGEN.
 	 */
 	public Spiller() { //FERDIG
-
 
 		this.spiller = Spillere.INGEN;
 		this.antalltrekk = 0;
@@ -88,13 +85,11 @@ public abstract class Spiller implements ISpiller {
 	public void leggTilKort(Kort kort) { //FERDIG
 		
 		hand.leggTil(kort);
-		
 	}
 
 	public void fjernKort(Kort kort) { //FERDIG
 		
 		hand.fjern(kort);
-		
 	}
 
 	public void fjernAlleKort() { //FERDIG
@@ -106,8 +101,6 @@ public abstract class Spiller implements ISpiller {
 
 		hand.leggTil(kort);
 		antalltrekk++;
-
 	}
-		
 }
 

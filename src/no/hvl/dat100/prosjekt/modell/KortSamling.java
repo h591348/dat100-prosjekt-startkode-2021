@@ -122,18 +122,17 @@ public class KortSamling {
 	 * @return siste kortet i samlinga. Dersom samalinga er tom, returneres
 	 *         null.
 	 */
-	public Kort taSiste() {
+	public Kort taSiste() { //FERDIG
 
-		Kort sisteKort = new Kort(null, 0);
+		Kort sisteKort;
 		if (antall == 0) {
-			return null;
+			sisteKort = null;
 		}
 		else{
 			sisteKort = samling[antall-1];
-			fjern(samling[antall-1]);
+			fjern(sisteKort);
 		}
 		return sisteKort;
-
 	}
 	
 	/**
@@ -144,7 +143,7 @@ public class KortSamling {
 	 * @return true om kortet finst i samlinga, false ellers.
 	 */
 
-	public boolean har(Kort kort) { //ERIK (FERDIG)
+	public boolean har(Kort kort) { //FERDIG
 
 		if (kort != null) {
 
@@ -168,7 +167,7 @@ public class KortSamling {
 	 * @return true om kortet blev fjernet fra samlinga, false ellers.
 	 */
 			 
-	public boolean fjern(Kort kort) {
+	public boolean fjern(Kort kort) { //FERDIG
 
 		for (int k = 0; k < antall; k++){
 
@@ -192,8 +191,7 @@ public class KortSamling {
 	 * @return tabell av kort som er i samlingen, der kort skal ha samme rekkefølge
 	 *         som i kortsamlinga.
 	 */
-	//Sigve
-	public Kort[] getAllekort() {
+	public Kort[] getAllekort() { //FERDIG
 
 		Kort[]tabell = new Kort[antall];
 		
@@ -202,5 +200,4 @@ public class KortSamling {
 		}
 		return tabell;
 	}
-	
 }
