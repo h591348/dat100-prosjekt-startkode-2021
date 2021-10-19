@@ -74,8 +74,6 @@ public class Spill {
 	 */
 	public void start() { //FERDIG
 
-		Spill spill = new Spill(); //Lager nytt bord med 2 spillere
-
 		KortUtils.stokk(bord.getBunkeFra() );
 		delutKort();
 		getBord().vendOversteFraBunke();
