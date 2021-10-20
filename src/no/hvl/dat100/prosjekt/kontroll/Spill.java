@@ -76,7 +76,7 @@ public class Spill {
 
 		KortUtils.stokk(bord.getBunkeFra() );
 		delutKort();
-		getBord().vendOversteFraBunke();
+		bord.vendOversteFraBunke();
 	}
 
 	/**
